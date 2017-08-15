@@ -1,22 +1,29 @@
 
 
 <!-- Partie du form pour ajouter photo avec Attachinary -->
-<%= simple_form_for(@chalet) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :capacity %>
-  <%= f.input :city %>
-  <%= f.input :location %>
-  <%= f.input :latitude %>
-  <%= f.input :longitude %>
-  <%= f.input :altitude %>
-  <%= f.input :rating %>
-  <%= f.input :price %>
-  <%= f.input :opening_date%>
-  <%= f.input :closing_date%>
-  <%= f.input :cb_accepted %>
-  <%= f.input :last_renovation %>
-  <%= f.input :photos, as: :attachinary %>
-  <%= f.submit %>
-<% end %>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4 bg-white padded device-form-container">
+      <h2 class="color-green">Sign up</h2>
+      <%= simple_form_for(@chalet) do |f| %>
+        <%= f.input :name, required: true, autofocus: true, placeholder: "Name", label: false %>
+        <%= f.input :capacity, required: true, autofocus: true, placeholder: "Number of Beds", label: false %>
+        <%= f.input :city, required: true, autofocus: true, placeholder: "Nearest City", label: false %>
+        <%= f.input :location, required: true, autofocus: true, placeholder: "Lieu-dit", label: false %>
+        <%= f.input :latitude, required: true, autofocus: true, placeholder: "Latitude", label: false %>
+        <%= f.input :longitude, required: true, autofocus: true, placeholder: "Longitude", label: false %>
+        <%= f.input :altitude, required: true, autofocus: true, placeholder: "Altitude", label: false %>
+        <%= f.input :rating, required: true, autofocus: true, placeholder: "Rating", label: false %>
+        <%= f.input :price, required: true, autofocus: true, placeholder: "Price per bed, per night", label: false %>
+        <%= f.input :opening_date, required: true, autofocus: true, placeholder: "Opening Date", label: false%>
+        <%= f.input :closing_date, required: true, autofocus: true, placeholder: "Closing_Date", label: false%>
+        <%= f.input :cb_accepted, required: true, autofocus: true, placeholder: "CB accepted, true or false ?", label: false %>
+        <%= f.input :last_renovation, required: true, autofocus: true, placeholder: "Name", label: false %>
+        <%= f.input :photos, as: :attachinary %>
+        <%= f.button :submit, "Add my Cabin !", class: "btn-medium" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
