@@ -1,0 +1,10 @@
+.map-layout {
+  display: flex;
+  align-items: stretch;
+}
+#map {
+  width: 500px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+}
