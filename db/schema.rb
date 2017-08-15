@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814162307) do
+ActiveRecord::Schema.define(version: 20170815111833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20170814162307) do
     t.integer  "rating"
     t.integer  "price"
     t.boolean  "cb_accepted"
-    t.date     "opening_date"
-    t.date     "closing_date"
-    t.date     "last_renovation"
+    t.string   "last_renovation"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.date     "opening_date"
+    t.date     "closing_date"
     t.index ["user_id"], name: "index_chalets_on_user_id", using: :btree
   end
 
