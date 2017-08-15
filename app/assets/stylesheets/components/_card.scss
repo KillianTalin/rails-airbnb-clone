@@ -1,17 +1,76 @@
-.card {
-  background-size: cover;
-  background-position: center;
-  color: white;
-  height: 150px;
-  border-radius: 1px;
-  margin: 10px;
-  margin-top: 20px;
-  font-size: 25px;
-  text-align: center;
-  padding: 50px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+.cards-container {
+  width: 65%;
+}
+
+.card-footer{
   display: flex;
   align-items: center;
+  padding: 3px;
   justify-content: space-around;
-  font-weight: bold;
+  color: grey;
+  font-style: lighter;
+}
+
+.card {
+  box-shadow: 0 0 25px rgb(210, 210, 210);
+  border: 1px solid rgb(200, 200, 200);
+  margin: 10px;
+  background-size: cover;
+  border-radius: 3px;
+}
+
+.card-body {
+  position: relative;
+  background-size: cover;
+  height: 200px;
+  transition: transform
+}
+
+.card-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+}
+
+.card-avatar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  width: 40px;
+}
+
+.card-footer {
+  display: flex;
+  padding: 3px;
+  align-items: left;
+  justify-content: space-between;
+  color: black;
+  opacity: 0.6;
+  font-style: lighter;
+  font-size: 14px;
+  margin-top: 3px;
+
+}
+
+.card-footer ul {
+  list-style: none;
+}
+
+.card-footer p {
+  margin-bottom: 2px;
+}
+
+.fa {
+  color: #E5B30F;
+  letter-spacing: 8px;
+  opacity: 0.7;
+}
+.fa:hover {
+  opacity: 1;
+}
+
+.footer-icons {
+  font-size: 20px;
 }

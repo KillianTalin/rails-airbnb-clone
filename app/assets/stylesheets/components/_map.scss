@@ -1,10 +1,13 @@
 .map-layout {
   display: flex;
-  align-items: stretch;
+}
+
+.map-container {
+  width: 35%;
 }
 #map {
-  width: 500px;
+  flex: 0 0 450px;
   height: 100vh;
-  position: sticky !important;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 0 !important;
 }
