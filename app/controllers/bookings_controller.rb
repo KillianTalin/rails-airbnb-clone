@@ -52,3 +52,5 @@ class BookingsController < ApplicationController
   end
 end
 
+#efd
+
