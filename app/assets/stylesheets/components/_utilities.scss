@@ -1,0 +1,33 @@
+body {
+	padding-top: 50px!important; 
+}
+
+.pagewrapper {
+  min-height: calc(100vh - 110px);
+}
+
+#sign_up .pagewrapper {
+	display: flex;
+	text-align: left;
+	justify-content: space-around;
+	align-items: center;
+	background-size: cover;
+	background-position: center;
+}
+
+.btn-medium {
+  background-color: rgba(82, 196, 132, 1.00);
+  text-color: white;
+  font-weight: bolder;
+  border: 1px solid rgba(25, 165, 152, 1.00);
+  padding: 10px 20px;
+  border-radius: 50px;
+  opacity: 1;
+}
+
+.btn-medium:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  border: 1px solid rgba(25, 165, 152, 1.00);
+  background-color: rgba(82, 196, 132, 1.00) ;
+}
