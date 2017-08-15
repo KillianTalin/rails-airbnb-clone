@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [ :edit, :update, :destroy ]
   resources :users, only: [ :show, :edit, :update ]
+  mount Attachinary::Engine => "/attachinary"
 end
