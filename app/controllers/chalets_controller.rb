@@ -9,6 +9,7 @@ class ChaletsController < ApplicationController
 
   def new
     @chalet = Chalet.new
+    @booking = Booking.new
   end
 
   def create

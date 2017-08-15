@@ -11,8 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 20170815120100) do
-
+ActiveRecord::Schema.define(version: 20170815105154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +29,19 @@ ActiveRecord::Schema.define(version: 20170815120100) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_start"
+    t.integer  "guest_number"
+    t.integer  "checkout"
+    t.integer  "chalet_id"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["chalet_id"], name: "index_bookings_on_chalet_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
   create_table "chalets", force: :cascade do |t|
@@ -80,5 +92,7 @@ ActiveRecord::Schema.define(version: 20170815120100) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bookings", "chalets"
+  add_foreign_key "bookings", "users"
   add_foreign_key "chalets", "users"
 end
