@@ -1,4 +1,22 @@
 
 
 <!-- Partie du form pour ajouter photo avec Attachinary -->
-<%= f.input :photos, as: :attachinary %>
+<%= simple_form_for(@chalet) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :capacity %>
+  <%= f.input :city %>
+  <%= f.input :location %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <%= f.input :altitude %>
+  <%= f.input :rating %>
+  <%= f.input :price %>
+  <%= f.input :opening_date%>
+  <%= f.input :closing_date%>
+  <%= f.input :cb_accepted %>
+  <%= f.input :last_renovation %>
+  <%= f.input :photos, as: :attachinary %>
+  <%= f.submit %>
+<% end %>
+
+

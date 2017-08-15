@@ -14,7 +14,7 @@ class ChaletsController < ApplicationController
 
   def create
     @chalet = Chalet.new(chalet_params)
-    if chalet.save
+    if @chalet.save
       redirect_to chalet_path(@chalet)
     else
       render :new
