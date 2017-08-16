@@ -27,7 +27,7 @@
         <p class="price"> Price: <%= trip.during.to_f * trip.chalet.price.to_f %> $</p>
         <p class="date_created"> Reserved at: <%= trip.created_at.strftime("%m/%d/%Y") %> </p>
         <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
-          <span class="label label-primary">More details</span>
+          <span class="btn btn-primary">More details</span>
         <% end %>
       </div>
       <div class="card_photo">
@@ -64,7 +64,7 @@
 
         <%= link_to chalet_booking_path(host.chalet_id, host.id) do %>
 
-          <span class="label label-primary">More details</span>
+          <span class="btn btn-primary">More details</span>
         <% end %>
       </div>
         <div class="card_photo">
