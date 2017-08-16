@@ -1,3 +1,8 @@
+<div>
+  <%= link_to chalets_path do %>
+    <span class="btn btn-primary">Voir les autres chalets</span>
+  <% end %>
+</div>
 <div class="chalet-layout">
   <% img_url = "http://res.cloudinary.com/dygmbrr3a/image/upload/" + @chalet.photos.first.path %>
   <div class="banner-photo" style="background-image: url('<%= img_url %>');">
@@ -9,6 +14,10 @@
     </div>
   </div>
   <div class="booking-container">
-
   </div>
 </div>
+
+
+
+</div>
+
