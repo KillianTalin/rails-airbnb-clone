@@ -1,18 +1,26 @@
+<div class="container">
 <% if @booking.user_id == current_user.id %>
   <h1>Your next trip</h1>
-  <%= link_to "Retour à mes commandes" ,bookings_path%>
   <h2>
     <%= @booking.chalet.name %>
+    <%= @booking.chalet.location %>
+    <%= @booking.chalet.latitude %>
+    <%= @booking.chalet.altitude %>
   </h2>
-
+    <%= link_to bookings_path do %>
+      <span class="btn btn-primary">Revenir à  mes commandes</span>
+    <% end %>
 <% end %>
 
 
 <% if @chalet.user_id ==  current_user.id %>
   <h1>Your reservation </h1>
-  <%= link_to "Retour à mes commandes" ,bookings_path%>
   <h2>
     <%= @booking.chalet.name %>
   </h2>
+    <%= link_to bookings_path do %>
+      <span class="btn btn-primary">Revenir à  mes commandes</span>
+    <% end %>
 <% end %>
 
+</div>
