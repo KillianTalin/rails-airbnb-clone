@@ -1,3 +1,23 @@
+<h1>Your next trip</h1>
+<ul>
+  <% @bookings_guest.each do |trip|%>
+    <li> <%= trip.start_date %> </li>
+    <li><%= trip.chalet.name %></li>
+    <li> <%= trip.guest_number %> </li>
+    <%= link_to "voir ma commande" ,chalet_booking_path(trip.chalet_id, trip.id)%>
+
+  <% end %>
+</ul>
+
+<h1>Your reservation</h1>
+<ul>
+  <% @bookings_host.each do |host|%>
+    <li><%= host.chalet.name %></li>
+    <li> <%= host.guest_number %> </li>
+    <li> <%= host.user.email %> </li>
+    <%= link_to "voir ma commande" ,chalet_booking_path(host.chalet_id, host.id)%>
+  <% end %>
+</ul>
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item">
