@@ -107,7 +107,7 @@ chalets_attributes = [
     closing_date:    20170830,
     last_renovation: "14 janvier 2014",
     photo_urls: ['http://www.refuges-montagne.info/images/argentiere-00.jpg']
-  }
+}
 
 ]
 
