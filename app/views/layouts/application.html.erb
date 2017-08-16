@@ -7,14 +7,13 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-  </head>
+ </head>
+
   <body id="<%= yield (:body_id) %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
-    <%= yield(:after_js) %>
     <script src="https://use.typekit.net/nbu3ayz.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
