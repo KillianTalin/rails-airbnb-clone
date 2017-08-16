@@ -4,6 +4,8 @@ body {
 
 .pagewrapper {
   min-height: calc(100vh - 110px);
+  display: flex;
+  align-items: center;
 }
 
 #sign_up .pagewrapper {
@@ -17,17 +19,81 @@ body {
 
 .btn-medium {
   background-color: rgba(82, 196, 132, 1.00);
-  text-color: white;
+  color: white;
   font-weight: bolder;
   border: 1px solid rgba(25, 165, 152, 1.00);
-  padding: 10px 20px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 10px 25px;
   border-radius: 50px;
   opacity: 1;
+  margin-bottom: 15px;
 }
 
 .btn-medium:hover {
   opacity: 0.8;
+  color: white;
   text-decoration: none;
   border: 1px solid rgba(25, 165, 152, 1.00);
   background-color: rgba(82, 196, 132, 1.00) ;
+}
+
+
+.bg-white{
+  background-color: white;
+  opacity: 0.9;
+}
+
+.bg-fade{
+  background-color: black;
+  opacity: 0.7;
+}
+
+.padded{
+  padding: 30px 30px;
+}
+
+.column-align{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn-fb {
+  margin-top: 25px;
+  background-color: #4C69BA;
+  background-image: linear-gradient(#4C69BA, #3B55A0);
+  font-weight: bolder;
+  margin: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color : white;
+  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  text-shadow: 0 -1px 0 #354C8C;
+}
+
+.btn-fb:hover {
+  text-decoration: none;
+  color : white;
+}
+
+.btn-sign {
+  margin-top: 25px;
+  background-color: rgba(82, 196, 132, 1.00) ;
+  font-weight: bolder;
+  margin: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color : white;
+  /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
+  text-shadow: 0 -1px 0 grey;
+}
+
+.btn-sign:hover {
+  text-decoration: none;
+  color : white;
+}
+
+.form-inline {
+    display: inline-block; //Or display: inline; 
 }

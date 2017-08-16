@@ -1,4 +1,33 @@
 
 
 <!-- Partie du form pour ajouter photo avec Attachinary -->
-<%= f.input :photos, as: :attachinary %>
+  
+      <h4 class="color-green">Add your beautiful Cabin ! ✨</h4>
+      <%= simple_form_for(@chalet) do |f| %>
+        <%= f.input :name, required: true, autofocus: true, placeholder: "Name", label: false %> 
+         <%= f.input :photos, as: :attachinary %>
+        <%= f.input :capacity, required: true, autofocus: true, placeholder: "Number of Beds", label: false %>
+        <%= f.input :city, required: true, autofocus: true, placeholder: "Nearest City", label: false %>
+        <%= f.input :location, required: true, autofocus: true, placeholder: "Lieu-dit", label: false %>
+        <%= f.input :latitude, required: true, autofocus: true, placeholder: "Latitude", label: false %>
+        <%= f.input :longitude, required: true, autofocus: true, placeholder: "Longitude", label: false %>
+        <%= f.input :altitude, required: true, autofocus: true, placeholder: "Altitude", label: false %>
+        <%= f.input :rating, required: true, autofocus: true, placeholder: "Rating", label: false %>
+        <%= f.input :price, required: true, autofocus: true, placeholder: "Price per bed, per night", label: false %> 
+        <%= f.input :last_renovation, required: true, autofocus: true, placeholder: "Last renovation", label: false %>
+
+       <div class='form-online'> 
+        <%= f.input :opening_date, as: :string, input_html: {class: "datepicker"}, required: true, autofocus: true, placeholder: "Opening Date", label: false%>
+        <%= f.input :closing_date, as: :string, input_html: {class: "datepicker"}, required: true, autofocus: true, placeholder: "Closing_Date", label: false%> 
+       </div>
+        <%= f.input :cb_accepted, required: true, autofocus: true, placeholder: "CB accepted, true or false ?"%>
+      
+      
+        <%= f.button :submit, "Add my Cabin !", class: "btn-medium" %>
+      <% end %>
+
+<% content_for(:after_js) do %>
+  <script>
+    $('.datepicker').datepicker();
+  </script>
+<% end %>

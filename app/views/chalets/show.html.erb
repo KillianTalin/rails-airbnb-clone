@@ -5,6 +5,15 @@
 
 
 <!-- Photos avec Attachinary ci-dessous -->
-<% @chalet.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
+
+<div class="banner-photo">
+  <% @chalet.photos.each do |photo| %>
+    <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+  <% end %>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="description"></div>
+    <div class="form"></div>
+  </div>
+</div>
