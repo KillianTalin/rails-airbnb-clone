@@ -1,0 +1,20 @@
+.card_host {
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 7px grey;
+  padding: 43px;
+  list-style: none;
+  display: flex;
+  justify-conten: space-between;
+  align-items: center;
+}
+
+.card_info {
+  flex: 1 0 auto;
+}
+
+.card_photo {
+  flex: 0 0 20%;
+
+}
