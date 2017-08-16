@@ -1,7 +1,9 @@
-<h1>Chalets#show</h1>
-<p>Find me in app/views/chalets/show.html.erb</p>
+<div class="container">
 
-@chalet.name
+<h1><%= @chalet.name %></h1>
+<p><%= @chalet.location %></p>
+
+
 
 
 <!-- Photos avec Attachinary ci-dessous -->
@@ -11,9 +13,21 @@
     <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
   <% end %>
 </div>
+
+<div>
+  <%= link_to chalets_path do %>
+    <span class="btn btn-primary">Voir les autres chalets</span>
+  <% end %>
+</div>
+
 <div class="wrapper">
   <div class="container">
     <div class="description"></div>
     <div class="form"></div>
   </div>
 </div>
+
+
+
+</div>
+
