@@ -36,8 +36,24 @@
     </div>
   </div>
   <div class="map-container">
-    <p id="info">Text</p>
-     <!--  <div id="map" style="width: 320px; height: 480px;"></div> -->
-
+    <div id="map"></div>
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        document.addEventListener("DOMContentLoaded", () => {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function(){
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
+        });
+      <% end %>
+    <% end %>
   </div>
 </div>
+
