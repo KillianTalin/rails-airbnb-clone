@@ -1,17 +1,15 @@
-<h1>Chalets#show</h1>
-<p>Find me in app/views/chalets/show.html.erb</p>
+<div class="chalet-layout">
+  <% img_url = "http://res.cloudinary.com/dygmbrr3a/image/upload/" + @chalet.photos.first.path %>
+  <div class="banner-photo" style="background-image: url('<%= img_url %>');">
+  </div>
+  <div class="chalet-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
 
+      </div>
+    </div>
+  </div>
+  <div class="booking-container">
 
-<!-- Photos avec Attachinary ci-dessous -->
-
-<div class="banner-photo">
-  <% @chalet.photos.each do |photo| %>
-    <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-  <% end %>
-</div>
-<div class="wrapper">
-  <div class="container">
-    <div class="description"></div>
-    <div class="form"></div>
   </div>
 </div>
