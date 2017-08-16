@@ -7,4 +7,6 @@
 //= require bootstrap-datepicker
 //= require underscore
 //= require gmaps/google
+//= require underscore
+//= require gmaps/google
 //= require_tree .
