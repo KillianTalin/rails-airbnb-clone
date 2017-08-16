@@ -16,8 +16,8 @@ chalets_attributes = [
     capacity:        130,
     city:            "Chamonix-Mont-Blanc",
     location:        "Massif du Mont-Blanc",
-    latitude:        45.5,
-    longitude:       45.5,
+    latitude:        45.8732,
+    longitude:       6.8856,
     altitude:        3613,
     rating:          3,
     price:           50,
@@ -32,8 +32,8 @@ chalets_attributes = [
     capacity:        120,
     city:            "Saint-Gervais-les-Bains",
     location:        "Massif du Mont-Blanc",
-    latitude:        45.5,
-    longitude:       45.5,
+    latitude:        45.851060,
+    longitude:       6.830066,
     altitude:        3835,
     rating:          4,
     price:           60,
@@ -48,8 +48,8 @@ chalets_attributes = [
     capacity:        74,
     city:            "Saint-Gervais-les-Bains",
     location:        "Massif du Mont-Blanc",
-    latitude:        45.5,
-    longitude:       45.5,
+    latitude:        45.854925,
+    longitude:       6.817477,
     altitude:        3167,
     rating:          3,
     price:           100,
@@ -61,12 +61,12 @@ chalets_attributes = [
 
   },
   {
-    name:            "Refuge Valot",
+    name:            "Refuge Vallot",
     capacity:        130,
     city:            "Saint-Gervais-les-Bains",
     location:        "Massif du Mont-Blanc",
-    latitude:        45.5,
-    longitude:       45.5,
+    latitude:        45.83916,
+    longitude:       6.85207,
     altitude:        4365,
     rating:          2,
     price:           20,
@@ -81,8 +81,8 @@ chalets_attributes = [
     capacity:        130,
     city:            "Bourg Saint-Maurice",
     location:        "Massif du Mont-Blanc",
-    latitude:        45.5,
-    longitude:       45.5,
+    latitude:        45.83916,
+    longitude:       6.85207,
     altitude:        4365,
     rating:          3,
     price:           100,
@@ -97,8 +97,8 @@ chalets_attributes = [
     capacity:        130,
     city:            "Chamonix-Mont-Blanc",
     location:        "Massif du Mont-Blanc",
-    latitude:        45.5,
-    longitude:       45.5,
+    latitude:        45.946309,
+    longitude:       7.004766,
     altitude:        2771,
     rating:          3,
     price:           100,
@@ -110,6 +110,39 @@ chalets_attributes = [
   }
 
 ]
+
+User.destroy_all
+users_attributes = [
+  {
+    email:            "titi@toto.com",
+    password:        "123456",
+  },
+  {
+    email:            "paul@paul.com",
+    password:        "123456",
+  }
+]
+
+
+Booking.destroy_all
+bookings_attributes = [
+  {
+    user_id:            User.last,
+    chalet_id:        Chalet.first,
+    guest_number:     6,
+  },
+  {
+    user_id:            User.first,
+    chalet_id:        Chalet.last,
+    guest_number:     12,
+
+
+  }
+]
+
+
+Booking.create!(bookings_attributes)
+User.create!(users_attributes)
 Chalet.create!(chalets_attributes)
 puts 'Finished!'
 

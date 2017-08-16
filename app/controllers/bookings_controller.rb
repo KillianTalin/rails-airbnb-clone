@@ -3,10 +3,12 @@ class BookingsController < ApplicationController
 
   def index
     @bookings_guest = Booking.where(user: current_user)
-    @bookings_host = Chalet.where(user: current_user).bookings
+    @chalet = Chalet.where(user: current_user)
+    @bookings_host = Booking.where(chalet_id: @chalet)
   end
 
   def show
+    @chalet = Chalet.find(params[:chalet_id])
   end
 
   def new
@@ -51,6 +53,3 @@ class BookingsController < ApplicationController
   params.require(:booking).permit(:start_date, :end_start, :guest_number)
   end
 end
-
-#efd
-
