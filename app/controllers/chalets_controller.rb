@@ -1,7 +1,15 @@
 class ChaletsController < ApplicationController
   before_action :set_chalet, only: [ :show, :edit, :update, :destroy]
   def index
-    @chalets = Chalet.all
+    # @chalets = Chalet.all
+
+    @chalets = Chalet.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@chalets) do |chalet, marker|
+      marker.lat chalet.latitude
+      marker.lng chalet.longitude
+      # marker.infowindow render_to_string(partial: "/chalets/map_box", locals: { chalet: chalet })
+end
   end
 
   def show
