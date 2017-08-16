@@ -110,6 +110,39 @@ chalets_attributes = [
   }
 
 ]
+
+User.destroy_all
+users_attributes = [
+  {
+    email:            "titi@toto.com",
+    password:        "123456",
+  },
+  {
+    email:            "paul@paul.com",
+    password:        "123456",
+  }
+]
+
+
+Booking.destroy_all
+bookings_attributes = [
+  {
+    user_id:            User.last,
+    chalet_id:        Chalet.first,
+    guest_number:     6,
+  },
+  {
+    user_id:            User.first,
+    chalet_id:        Chalet.last,
+    guest_number:     12,
+
+
+  }
+]
+
+
+Booking.create!(bookings_attributes)
+User.create!(users_attributes)
 Chalet.create!(chalets_attributes)
 puts 'Finished!'
 
