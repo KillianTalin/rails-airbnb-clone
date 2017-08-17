@@ -30,13 +30,9 @@
         <%= f.input :closing_date, as: :string, input_html: {class: "datepicker"}, required: true, autofocus: true, placeholder: "Closing date", label: false%>
       </div>
     </div>
+        <%= f.input :description, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'},required: true, autofocus: true, placeholder: "Enter the description of your chalet!", label: false %>
     <%= f.input :cb_accepted, required: true, autofocus: true, placeholder: "CB accepted, true or false ?"%>
     <%= f.button :submit, "Add my Cabin !", class: "btn-medium" %>
-    <div class="row">
-      <div class="col-xs-6">
-    <%= f.input :description, required: true, autofocus: true, placeholder: "Enter the description of your chalet here!", label: false %>
-      </div>
-    </div>
   <% end %>
 <% content_for(:after_js) do %>
   <script>
