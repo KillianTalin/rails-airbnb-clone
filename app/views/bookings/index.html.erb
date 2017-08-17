@@ -1,4 +1,3 @@
-
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item">
@@ -12,42 +11,159 @@
 <!-- Tab panes -->
 <div class="tab-content container">
   <div class="tab-pane active" id="home" role="tabpanel">
-  <h1>Your next trip</h1>
-  <ul>
     <div class="list_book">
+      <h1>Your trips</h1>
+      <% if @bookings_guest.empty? %>
+        <h2>You don't have any bookings, book now!</h2>
+      <% end %>
+      <% fois = 1 %>
       <% @bookings_guest.each do |trip|%>
+        <% if trip.now %>
+            <% if fois == 1 %>
+              <h3>Now</h3>
+              <% fois = fois + 2 %>
+            <% end %>
+          <div class="card_host">
+            <div class="card_info">
+              <p>Enjoy !</p>
+              <h4>
+                Au <%= trip.chalet.name %> du <%= trip.start_date.to_time.strftime("%d/%m/%Y")%> au <%= trip.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= trip.during %> days )
+              </h4>
+              <%= trip.guest_number %>
+              <p class="price"> Checkout: <%= trip.checkout %> $</p>
+
+              <p class="date_created"> Reserved at: <%= trip.created_at.strftime("%m/%d/%Y") %> </p>
+              <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
+                <span class="btn btn-primary">More details</span>
+              <% end %>
+            </div>
+            <div class="card_photo">
+              <% trip.chalet.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% fois = 1 %>
+      <% @bookings_guest.each do |trip|%>
+        <% if trip.futur %>
+            <% if fois == 1 %>
+              <h3>Your future trip</h3>
+              <% fois = fois + 2 %>
+            <% end %>
+          <div class="card_host">
+            <div class="card_info">
+              <p>D - <%= trip.before %> before this trip</p>
+              <h4>
+                Au <%= trip.chalet.name %> du <%= trip.start_date.to_time.strftime("%d/%m/%Y")%> au <%= trip.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= trip.during %> days )
+              </h4>
+              <p>You are <%= trip.guest_number %> guests</p>
+              <p class="price"> Checkout: <%= trip.checkout %> $</p>
+              <p class="date_created"> Reserved at: <%= trip.created_at.strftime("%m/%d/%Y") %> </p>
+              <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
+                <span class="btn btn-primary">More details</span>
+              <% end %>
+            </div>
+            <div class="card_photo">
+              <% trip.chalet.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% fois = 1 %>
+      <% @bookings_guest.each do |trip|%>
+        <% if trip.passed %>
+            <% if fois == 1 %>
+              <h3>Your past trips</h3>
+              <% fois = fois + 2 %>
+            <% end %>
+          <div class="card_host">
+            <div class="card_info">
+              <p><%= trip.finished_ago %> days ago</p>
+              <h4>
+                Au <%= trip.chalet.name %> du <%= trip.start_date.to_time.strftime("%d/%m/%Y")%> au <%= trip.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= trip.during %> days )
+              </h4>
+              <%= trip.guest_number %>
+              <p class="price"> Price: <%= trip.during.to_f * trip.chalet.price.to_f %> $</p>
+              <p class="date_created"> Reserved at: <%= trip.created_at.strftime("%m/%d/%Y") %> </p>
+              <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
+                <span class="btn btn-primary">More details</span>
+              <% end %>
+            </div>
+            <div class="card_photo">
+              <% trip.chalet.photos.each do |photo| %>
+                <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+<div class="tab-pane" id="profile" role="tabpanel">
+  <div class="list_book">
+    <h1>Your bookings</h1>
+      <% if @bookings_host.empty? %>
+        <% if @chalet.empty? %>
+        <h2>You do not have any cabins right now. Add yours!</h2>
+        <% else %>
+          <h2>No bookings for your cabins right now. Keep waiting!</h2>
+        <% end %>
+      <% end %>
+
+
+
+
+
+
+
+      <% fois = 1 %>
+      <% @bookings_host.each do |host|%>
+        <% if host.now %>
+          <% if fois == 1 %>
+              <h3>Your current booking is: </h3>
+              <% fois = fois + 2 %>
+            <% end %>
         <div class="card_host">
           <div class="card_info">
-            <p>J - <%= trip.before %> before your next trip</p>
+            <p><%= host.before %> days left before your next clients</p>
             <h4>
-              Au <%= trip.chalet.name %> du <%= trip.start_date.to_time.strftime("%d/%m/%Y")%> au <%= trip.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= trip.during %> days )
+              Au <%= host.chalet.name %> du <%= host.start_date.to_time.strftime("%d/%m/%Y")%> au <%= host.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= host.during %> days )
             </h4>
-            <li> <%= trip.guest_number %> </li>
-            <p class="price"> Price: <%= trip.during.to_f * trip.chalet.price.to_f %> $</p>
-            <p class="date_created"> Reserved at: <%= trip.created_at.strftime("%m/%d/%Y") %> </p>
-            <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
+            <li> In your <%= host.chalet.name %></li>
+            <li> There are <%= host.guest_number %> people </li>
+            <li> Contact <%= host.user.email %> </li>
+            <p> Price: <%= host.during.to_f * host.chalet.price.to_f %> $</p>
+            <p> Created at:  <%= host.created_at.strftime("%m/%d/%Y") %> </p>
+            <%= link_to chalet_booking_path(host.chalet_id, host.id) do %>
               <span class="btn btn-primary">More details</span>
             <% end %>
           </div>
           <div class="card_photo">
-            <% trip.chalet.photos.each do |photo| %>
+            <% host.chalet.photos.each do |photo| %>
               <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
             <% end %>
           </div>
         </div>
       <% end %>
-    </div>
-  </ul>
-  </div>
+    <% end %>
 
-  <div class="tab-pane" id="profile" role="tabpanel">
-    <h1>Your reservation</h1>
-    <ul>
-      <div class="list_book">
+      <% fois = 1 %>
       <% @bookings_host.each do |host|%>
+        <% if host.futur %>
+          <% if fois == 1 %>
+              <h3></h3>
+              <% fois = fois + 2 %>
+            <% end %>
         <div class="card_host">
           <div class="card_info">
-            <p>J - <%= host.before %> before your next clients</p>
+            <p>D - <%= host.before %> before your next clients</p>
             <h4>
               Au <%= host.chalet.name %> du <%= host.start_date.to_time.strftime("%d/%m/%Y")%> au <%= host.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= host.during %> days )
             </h4>
@@ -67,6 +183,39 @@
           </div>
         </div>
       <% end %>
-    </ul>
+    <% end %>
+
+
+      <% fois = 1 %>
+      <% @bookings_host.each do |host|%>
+        <% if host.passed %>
+          <% if fois == 1 %>
+              <h3>History of </h3>
+              <% fois = fois + 2 %>
+            <% end %>
+        <div class="card_host">
+          <div class="card_info">
+            <p><%= host.finished_ago %> days ago</p>
+            <h4>
+              Au <%= host.chalet.name %> du <%= host.start_date.to_time.strftime("%d/%m/%Y")%> au <%= host.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= host.during %> days )
+            </h4>
+            <li> In your <%= host.chalet.name %></li>
+            <li> There are <%= host.guest_number %> people </li>
+            <li> Contact <%= host.user.email %> </li>
+            <p> Price: <%= host.during.to_f * host.chalet.price.to_f %> $</p>
+            <p> Created at:  <%= host.created_at.strftime("%m/%d/%Y") %> </p>
+            <%= link_to chalet_booking_path(host.chalet_id, host.id) do %>
+              <span class="btn btn-primary">More details</span>
+            <% end %>
+          </div>
+          <div class="card_photo">
+            <% host.chalet.photos.each do |photo| %>
+              <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
   </div>
 </div>
