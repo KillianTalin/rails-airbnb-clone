@@ -1,6 +1,9 @@
 class Booking < ApplicationRecord
   belongs_to :chalet
   belongs_to :user
+  validates :chalet_id, presence: true
+  validates :user_id, presence: true
+  validates :guest_number,  :numericality => { :greater_than_or_equal_to => 1 }
   validates :start_date, :end_date, :presence => true
   validates :user_id, :presence => true
   validates :chalet_id, :presence => true
