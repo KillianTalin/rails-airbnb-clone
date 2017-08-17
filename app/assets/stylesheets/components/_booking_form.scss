@@ -1,3 +1,12 @@
 .booking-container {
   width: 25%;
 }
+
+.booking-container {
+ display: flex;
+ vertical-align: center;
+ align-items: center;
+ justify-content: center;
+  padding: 30px;
+  margin: 30px;
+}
