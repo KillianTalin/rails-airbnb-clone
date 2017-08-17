@@ -31,6 +31,7 @@
         <div>
         <h3>Book Now.</h3>
            <div class="form-inputs color-green">
+
               <%= simple_form_for (@booking) do |f| %>
                   <div class="col-xs-6">
                   
@@ -41,6 +42,18 @@
                   </div>
                 </div>
                 <%= f.input :guest_number, required: true, autofocus: true, placeholder: "Guests Number", label: false %> 
+
+
+              <%= simple_form_for [@chalet, @booking] do |f| %>
+                  <div class="col-xs-6">
+
+                    <%= f.input :start_date, placeholder: "opening date", label: false%>
+                  </div>
+                  <div class="col-xs-6">
+                    <%= f.input :end_date, placeholder: "closing date", label: false%>
+                  </div>
+                </div>
+                <%= f.input :guest_number, required: true, autofocus: true, placeholder: "Guests Number", label: false %>
 
                 <div class="form-actions text-center">
                   <%= f.button :submit, "Book Now !", class: "btn-medium" %>
@@ -55,4 +68,3 @@
     </div>
   </div>
 </div>
-
