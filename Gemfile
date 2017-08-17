@@ -12,6 +12,7 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem "geocoder"
+gem 'bootstrap-datepicker-rails'
 gem "gmaps4rails"
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
