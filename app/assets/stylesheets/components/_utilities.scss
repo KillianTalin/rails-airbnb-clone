@@ -1,5 +1,5 @@
 body {
-	padding-top: 50px!important; 
+	padding-top: 50px!important;
 }
 
 .pagewrapper {
@@ -40,6 +40,12 @@ body {
 
 .bg-white{
   background-color: white;
+  opacity: 0.9;
+}
+
+.bg-fade{
+  background-color: black;
+  opacity: 0.7;
 }
 
 .padded{
@@ -86,4 +92,12 @@ body {
 .btn-sign:hover {
   text-decoration: none;
   color : white;
+}
+
+.banner-photo {
+  height: 300px;
+}
+
+.form-inline {
+  display: inline-block; //Or display: inline;
 }

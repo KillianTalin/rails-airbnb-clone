@@ -107,7 +107,7 @@ chalets_attributes = [
     closing_date:    20170830,
     last_renovation: "14 janvier 2014",
     photo_urls: ['http://www.refuges-montagne.info/images/argentiere-00.jpg']
-  }
+}
 
 ]
 
@@ -125,23 +125,7 @@ users_attributes = [
 
 
 Booking.destroy_all
-bookings_attributes = [
-  {
-    user_id:            User.last,
-    chalet_id:        Chalet.first,
-    guest_number:     6,
-  },
-  {
-    user_id:            User.first,
-    chalet_id:        Chalet.last,
-    guest_number:     12,
 
-
-  }
-]
-
-
-Booking.create!(bookings_attributes)
 User.create!(users_attributes)
 Chalet.create!(chalets_attributes)
 puts 'Finished!'

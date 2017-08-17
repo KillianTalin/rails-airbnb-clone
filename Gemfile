@@ -26,6 +26,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
 gem 'omniauth-facebook'
+source "https://rails-assets.org" do
+	gem 'rails-assets-bootstrap-datepicker'
+end
 
 group :development, :test do
   gem 'pry-byebug'
