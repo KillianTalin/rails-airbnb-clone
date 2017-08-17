@@ -7,7 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Cleaning database...'
+Booking.destroy_all
 Chalet.destroy_all
+User.destroy_all
+
+puts 'Creating users...'
+users_attributes = [
+  {
+    email:           "titi@toto.com",
+    password:        "123456",
+  },
+  {
+    email:           "paul@paul.com",
+    password:        "123456",
+  }
+]
+User.create!(users_attributes)
 
 puts 'Creating chalets...'
 chalets_attributes = [
@@ -24,6 +39,7 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
+    user:         User.all.sample,
     last_renovation: "14 janvier 2014",
     photo_urls: ['https://lh3.googleusercontent.com/-MbVZ5BVlaeA/WAInJcEfwCI/AAAAAAAAs5I/ywJ6rZR9Si4bUEvjuh3zxzEHkpqFISyZQCLIB/w645-h320-k-no/']
   },
@@ -40,6 +56,7 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
+    user:         User.all.sample,
     last_renovation: "14 janvier 2014",
     photo_urls: ['https://www.chamonix.net/sites/default/files/refuge-du-gouter.jpg?itok=uog9XUVO']
   },
@@ -56,6 +73,7 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
+    user:         User.all.sample,
     last_renovation: "14 janvier 2014",
     photo_urls: ['http://magdescimes.com/wp-content/uploads/2012/07/25156292452_10151047309892453.jpg']
 
@@ -73,6 +91,7 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
+    user:         User.all.sample,
     last_renovation: "14 janvier 2014",
     photo_urls: ['http://www.refuges-montagne.info/images/vallot-00.jpg']
   },
@@ -89,6 +108,7 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
+    user:         User.all.sample,
     last_renovation: "14 janvier 2014",
     photo_urls:      ['http://www.refuges-montagne.info/images/vallot-00.jpg']
   },
@@ -105,28 +125,11 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
+    user:         User.all.sample,
     last_renovation: "14 janvier 2014",
     photo_urls: ['http://www.refuges-montagne.info/images/argentiere-00.jpg']
 }
-
 ]
-
-User.destroy_all
-users_attributes = [
-  {
-    email:            "titi@toto.com",
-    password:        "123456",
-  },
-  {
-    email:            "paul@paul.com",
-    password:        "123456",
-  }
-]
-
-
-Booking.destroy_all
-
-User.create!(users_attributes)
 Chalet.create!(chalets_attributes)
 puts 'Finished!'
 
