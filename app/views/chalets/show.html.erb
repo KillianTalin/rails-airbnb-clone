@@ -10,14 +10,49 @@
   <div class="chalet-container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="chalet-description">
+          <h2> <%= @chalet.name %></h2>
+          <h3> <%= @chalet.altitude %> m d'altitude</h3>
+          <a href="#"><i class="fa fa-star"></i></a>
+          <a href="#"><i class="fa fa-star"></i></a>
+          <a href="#"><i class="fa fa-star"></i></a>
+          <a href="#"><i class="fa fa-star"></i></a>
+          <a href="#"><i class="fa fa-star"></i></a>
+          <p class="chalet-text">
+          Le refuge des Cosmiques domine la vallée de Chamonix. Rapide d'accès depuis l'aiguille du Midi, il est idéalement placé au pied de l'arête des Cosmiques, et au coeur d'un des secteurs les plus intéressants du massif du Mont-Blanc autour du col du Midi.</p>
+          <br>
+          <p>On peut ainsi gravir depuis le refuge des Cosmiques la voie des 3 Monts, en direction du Mont-Blanc, mais aussi de nombreuses classiques. L'hiver en goulotte de glace, avec la goulotte Gabarrou-Albinoni, les voies du triangle du Tacul (goulotte Chéré), la goulotte des Cosmiques. Et l'été les voies d'escalade de l'aiguille du Midi ou des piliers du Tacul.
+          Confortable et moderne, le refuge des Cosmiques est ouvert une grande partie de l'année. Le seul problème est souvent de résister à l'altitude élevée (c'est le plus haut refuge gardé du massif du Mont-Blanc après le Goûter), rendue brutale par le rapide accès depuis l'aiguille du Midi : acclimatation très conseillée !
+          </p>
+        </div>
       </div>
+
+        <div class="booking-container col-xs-3 col-xs-offset-3 bg-white padded device-form-container">
+        <div>
+        <h3>Book Now.</h3>
+           <div class="form-inputs color-green">
+              <%= simple_form_for (@booking) do |f| %>
+                  <div class="col-xs-6">
+                  
+                    <%= f.input :start_date, as: :string, input_html: {class: "datepicker"}, required: true, autofocus: true, placeholder: "opening date", label: false%>
+                  </div>
+                  <div class="col-xs-6">
+                    <%= f.input :end_date, as: :string, input_html: {class: "datepicker"}, required: true, autofocus: true, placeholder: "closing date", label: false%> 
+                  </div>
+                </div>
+                <%= f.input :guest_number, required: true, autofocus: true, placeholder: "Guests Number", label: false %> 
+
+                <div class="form-actions text-center">
+                  <%= f.button :submit, "Book Now !", class: "btn-medium" %>
+                </div>
+              <% end %>
+              </div>
+              </div>
+             </div>
+          </div>
+        </div><div class="row">
+        </div>
     </div>
   </div>
-  <div class="booking-container">
-  </div>
-</div>
-
-
-
 </div>
 
