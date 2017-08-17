@@ -14,7 +14,7 @@
     <div class="list_book">
       <h1>Your trips</h1>
       <% if @bookings_guest.empty? %>
-        <h2>Your have any bookinkgs, book now!</h2>
+        <h2>You don't have any bookings, book now!</h2>
       <% end %>
       <% fois = 1 %>
       <% @bookings_guest.each do |trip|%>
@@ -50,7 +50,7 @@
       <% @bookings_guest.each do |trip|%>
         <% if trip.futur %>
             <% if fois == 1 %>
-              <h3>Your futur trip</h3>
+              <h3>Your future trip</h3>
               <% fois = fois + 2 %>
             <% end %>
           <div class="card_host">
@@ -59,7 +59,7 @@
               <h4>
                 Au <%= trip.chalet.name %> du <%= trip.start_date.to_time.strftime("%d/%m/%Y")%> au <%= trip.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= trip.during %> days )
               </h4>
-              <p>Your are <%= trip.guest_number %> guests</p>
+              <p>You are <%= trip.guest_number %> guests</p>
               <p class="price"> Checkout: <%= trip.checkout %> $</p>
               <p class="date_created"> Reserved at: <%= trip.created_at.strftime("%m/%d/%Y") %> </p>
               <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
@@ -132,12 +132,12 @@
             <% end %>
         <div class="card_host">
           <div class="card_info">
-            <p>J - <%= host.before %> before your next clients</p>
+            <p> - <%= host.before %> before your next clients</p>
             <h4>
               Au <%= host.chalet.name %> du <%= host.start_date.to_time.strftime("%d/%m/%Y")%> au <%= host.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= host.during %> days )
             </h4>
             <li> In your <%= host.chalet.name %></li>
-            <li> They are <%= host.guest_number %> peoples </li>
+            <li> There are <%= host.guest_number %> people </li>
             <li> Contact <%= host.user.email %> </li>
             <p> Price: <%= host.during.to_f * host.chalet.price.to_f %> $</p>
             <p> Created at:  <%= host.created_at.strftime("%m/%d/%Y") %> </p>
@@ -163,7 +163,7 @@
             <% end %>
         <div class="card_host">
           <div class="card_info">
-            <p>J - <%= host.before %> before your next clients</p>
+            <p>D - <%= host.before %> before your next clients</p>
             <h4>
               Au <%= host.chalet.name %> du <%= host.start_date.to_time.strftime("%d/%m/%Y")%> au <%= host.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= host.during %> days )
             </h4>
@@ -200,7 +200,7 @@
               Au <%= host.chalet.name %> du <%= host.start_date.to_time.strftime("%d/%m/%Y")%> au <%= host.end_date.to_time.strftime("%d/%m/%Y")%> ( <%= host.during %> days )
             </h4>
             <li> In your <%= host.chalet.name %></li>
-            <li> They are <%= host.guest_number %> peoples </li>
+            <li> There are <%= host.guest_number %> people </li>
             <li> Contact <%= host.user.email %> </li>
             <p> Price: <%= host.during.to_f * host.chalet.price.to_f %> $</p>
             <p> Created at:  <%= host.created_at.strftime("%m/%d/%Y") %> </p>
