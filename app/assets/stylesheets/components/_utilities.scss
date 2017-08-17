@@ -151,6 +151,32 @@ body {
   display: inline-block; //Or display: inline;
 }
 
+.attachinary_container ul {
+  list-style: none;
+  padding: 15px;
+  text-align: center;
+  margin: 15px;
+}
+
+.attachinary_container a {
+  padding-left: 30px;
+}
+
+.attachinary_container img {
+  border-radius: 4px;
+  width: 100px;
+  height: 75px;
+}
+
+.title-add-cabin {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.btn-add-cabin {
+  padding-bottom: 20px;
+  padding-top: 20px
+
 .div-feature{
   display: flex;
   flex-direction: column;
