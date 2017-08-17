@@ -34,23 +34,72 @@ body {
   color: white;
   text-decoration: none;
   border: 1px solid rgba(25, 165, 152, 1.00);
-  background-color: rgba(82, 196, 132, 1.00) ;
+  background-color: rgba(82, 196, 132, 1.00);
 }
 
+.title{
+  color: #8D8D8D;
+}
 
 .bg-white{
   background-color: white;
   opacity: 0.9;
 }
 
+.bg-emerald{
+  background-color: $emerald!important; 
+  opacity: 1;
+}
+
 .bg-fade{
-  background-color: black;
+  background-color: black!important; 
   opacity: 0.7;
+}
+
+.text-white{
+  color: white;
+}
+
+.text-black{
+  color: rgba( 34, 34, 34, 1.00);
+}
+
+.text-emerald{
+  color: rgba(82, 196, 132, 1.00);
+}
+
+.uppercased{
+  text-transform: uppercase;
+}
+
+.text-ms{
+  font-size: 24px;
+}
+
+.font-bolder{
+  font-weight: bolder;
+}
+
+.font-lighter{
+  font-weight: lighter;
+}
+
+.margin-top-classic{
+  margin-top: 30px;
+}
+
+.margin-bottom-classic{
+  margin-bottom: 30px;
 }
 
 .padded{
   padding: 30px 30px;
 }
+
+.box-shadowed{
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
 
 .column-align{
   display: flex;
@@ -95,9 +144,15 @@ body {
 }
 
 .banner-photo {
-  height: 300px;
+  height: 600px;
 }
 
 .form-inline {
   display: inline-block; //Or display: inline;
+}
+
+.div-feature{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

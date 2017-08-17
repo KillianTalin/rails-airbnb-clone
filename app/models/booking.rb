@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   validates :chalet_id, presence: true
   validates :user_id, presence: true
+  validates :guest_number,  :numericality => { :greater_than_or_equal_to => 1 }
 
   def during
     (self.end_date.to_time - self.start_date.to_time).to_i/ 86400
