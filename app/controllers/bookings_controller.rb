@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.chalet = @chalet
     @booking.user = current_user
+    @booking.statut = "Pending"
     self.price
     if @booking.save
       redirect_to bookings_path
@@ -39,6 +40,11 @@ class BookingsController < ApplicationController
       else
         render :new
       end
+    end
+
+    def destroy
+      @booking.destroy
+      redirect_to bookings_path
     end
 
   private

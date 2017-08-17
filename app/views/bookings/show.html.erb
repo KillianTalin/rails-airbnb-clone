@@ -2,13 +2,32 @@
 <% if @booking.user_id == current_user.id %>
   <h1>Your next trip</h1>
   <h2>
-      <%= @booking.id %>
+    <p>
 
+    booking id <%= @booking.id %>
+    </p>
+     <p>
+
+    user id booking <%= @booking.user_id %>
+    </p>
+     <p>
+
+    chalet id booking <%= @booking.chalet.id %>
+    </p>
+
+         <p>
+
+    id de l'user du chalet booké <%= @booking.chalet.id %>
+    </p>
     <%= @booking.chalet.name %>
     <%= @booking.chalet.location %>
     <%= @booking.chalet.latitude %>
     <%= @booking.chalet.altitude %>
+    <%= @booking.statut %>
   </h2>
+  <%= link_to "Delete", booking_path(@booking),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
     <%= link_to bookings_path do %>
       <span class="btn btn-primary">Revenir à  mes commandes</span>
     <% end %>
@@ -18,8 +37,20 @@
 <% if @chalet.user_id ==  current_user.id %>
   <h1>Your reservation </h1>
   <h2>
-    <%= @booking.id %>
+    <p>
+
+    booking id <%= @booking.id %>
+    </p>
+     <p>
+
+    user id booking <%= @booking.user_id %>
+    </p>
+     <p>
+
+    chalet id booking <%= @booking.chalet.id %>
+    </p>
     <%= @booking.chalet.name %>
+    <%= @booking.statut %>
   </h2>
     <%= link_to bookings_path do %>
       <span class="btn btn-primary">Revenir à  mes commandes</span>

@@ -9,7 +9,7 @@ class ChaletsController < ApplicationController
       marker.lat chalet.latitude
       marker.lng chalet.longitude
       # marker.infowindow render_to_string(partial: "/chalets/map_box", locals: { chalet: chalet })
-end
+    end
   end
 
   def show
@@ -23,6 +23,7 @@ end
 
   def create
     @chalet = Chalet.new(chalet_params)
+    @chalet.user = current_user
     if @chalet.save
       redirect_to chalet_path(@chalet)
     else
