@@ -2,9 +2,9 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings_guest = Booking.where(user: current_user)
+    @bookings_guest = Booking.where(user: current_user).order(:start_date)
     @chalet = Chalet.where(user: current_user)
-    @bookings_host = Booking.where(chalet_id: @chalet)
+    @bookings_host = Booking.where(chalet_id: @chalet).order(:start_date)
   end
 
   def show
@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.chalet = @chalet
     @booking.user = current_user
+    self.price
     if @booking.save
       redirect_to bookings_path
     else

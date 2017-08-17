@@ -2,6 +2,8 @@
 <% if @booking.user_id == current_user.id %>
   <h1>Your next trip</h1>
   <h2>
+      <%= @booking.id %>
+
     <%= @booking.chalet.name %>
     <%= @booking.chalet.location %>
     <%= @booking.chalet.latitude %>
@@ -16,6 +18,7 @@
 <% if @chalet.user_id ==  current_user.id %>
   <h1>Your reservation </h1>
   <h2>
+    <%= @booking.id %>
     <%= @booking.chalet.name %>
   </h2>
     <%= link_to bookings_path do %>
@@ -23,5 +26,4 @@
     <% end %>
 <% end %>
 
-</div>
 </div>
