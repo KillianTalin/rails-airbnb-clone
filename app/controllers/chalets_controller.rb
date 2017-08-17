@@ -4,7 +4,13 @@ class ChaletsController < ApplicationController
     # @chalets = Chalet.all
     #@chalets = Chalet.where params [:location]
     @chalets = Chalet.where.not(latitude: nil, longitude: nil)
-    @results = @chalets.where(location: params[:location])
+
+    results_by_loc = @chalets.where(location: params[:location])
+    #, params[:start_date] BETWEEN opening_date and closing_date, params[:end_date] BETWEEN opening_date and closing_date, start_date < end_date)
+    @results = results_by_loc.select do |chalet|
+      Date.parse(params[:start_date]) >= chalet.opening_date && Date.parse(params[:end_date]) <= chalet.closing_date
+    end
+
     @hash = Gmaps4rails.build_markers(@results) do |chalet, marker|
       marker.lat chalet.latitude
       marker.lng chalet.longitude

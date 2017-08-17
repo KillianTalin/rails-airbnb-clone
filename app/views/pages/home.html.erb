@@ -9,10 +9,10 @@
         <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
 
         <label class="sr-only" for="check-in">Check-in</label>
-        <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in">
+        <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in" id="start">
 
         <label class="sr-only" for="check-out">Check-out</label>
-        <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" >
+        <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" id="end">
 
         <label class="sr-only" for="guest_number"> Guest Number </label>
           <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="guest_number">
@@ -28,6 +28,20 @@
     </div>
   </div>
 </div>
+<% content_for(:after_js) do %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#start").datepicker({
+      format: "yyyymmdd",
+      startDate: "0d"
+    });
+    $("#end").datepicker({
+      format: "yyyymmdd",
+      startDate: "+1d"
+    });
+  });
+</script>
+<% end %>
       <!-- Code your cards  here -->
 
 <!--If user sign in -->
