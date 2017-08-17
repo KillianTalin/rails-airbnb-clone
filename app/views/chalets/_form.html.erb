@@ -1,8 +1,8 @@
-<h4 class="color-green">Add your beautiful Cabin ! ✨</h4>
+<h4 class="color-green title-add-cabin text-center">Add your beautiful Cabin ! ✨</h4>
   <%= simple_form_for(@chalet) do |f| %>
     <%= f.input :name, required: true, autofocus: true, placeholder: "Name", label: false %>
     <%= f.input :last_renovation, required: true, autofocus: true, placeholder: "Last renovation", label: false %>
-    <%= f.input :photos, as: :attachinary %>
+    <%= f.input :photos, as: :attachinary, class: "photo-display"%>
     <div class="row">
       <div class="col-xs-6">
         <%= f.input :city, required: true, autofocus: true, placeholder: "Nearest City", label: false %>
@@ -32,7 +32,11 @@
     </div>
         <%= f.input :description, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'},required: true, autofocus: true, placeholder: "Enter the description of your chalet!", label: false %>
     <%= f.input :cb_accepted, required: true, autofocus: true, placeholder: "CB accepted, true or false ?"%>
-    <%= f.button :submit, "Add my Cabin !", class: "btn-medium" %>
+    <div class="row">
+      <div class="form-actions text-center btn-add-cabin">
+        <%= f.button :submit, "Add my Cabin !", class: "btn-medium" %>
+      </div>
+    </div>
   <% end %>
 <% content_for(:after_js) do %>
   <script>

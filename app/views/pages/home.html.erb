@@ -1,12 +1,34 @@
 
-  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= image_path "background-landing.png"%>)">
-    <div class="banner-content">
-      <h1>Welcome to Paradise.</h1>
-      <p>Find a bed in unique Cabins all accross the French Alps.</p>
-      <a href="/chalets" class="btn btn-medium">Book now !</a>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= image_path "background-landing.png"%>)">
+  <div class="banner-content">
+    <h1>Welcome to Paradise.</h1>
+    <p>Find a bed in unique Cabins all accross the French Alps.</p>
+    <div class="banner-form">
+      <form action="/chalets" class="form-inline" method="get">
+        <label class="sr-only" for="location">Location</label>
+        <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
+
+        <label class="sr-only" for="check-in">Check-in</label>
+        <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in">
+
+        <label class="sr-only" for="check-out">Check-out</label>
+        <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" >
+
+        <label class="sr-only" for="guest_number"> Guest Number </label>
+          <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="guest_number">
+            <option selected>Guests</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">More than four</option>
+          </select>
+        <button type="submit" class="btn btn-primary">Let's Go</button>
+      </form>
     </div>
   </div>
-        <!-- Code your cards  here -->
+</div>
+      <!-- Code your cards  here -->
 
 <!--If user sign in -->
 
