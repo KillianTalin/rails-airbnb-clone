@@ -4,22 +4,15 @@
       <% @results.each do |chalet| %>
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="card">
-
           <%= link_to chalet_path(chalet) do %>
-
-
-
-
             <div class="card-body"
               style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)),
-              url('<%= chalet.photos? ? cl_image_path(chalet.photos.first.path, height: 300, width: 400, crop: :fill) : 'http://placehold.it/300x400' %>')">
+              url('<%= chalet.photos? ? cl_image_path(chalet.photos.first.path, height: 300, width: 400, crop: :fill) : 'http://placehold.it/400x300' %>')">
               <div class="card-description">
                 <h4 class="card-category"><%= chalet.name %></h4>
               </div>
             </div>
-
-            <% end %>
-
+          <% end %>
             <div class="card-footer">
               <ul>
                 <li>
