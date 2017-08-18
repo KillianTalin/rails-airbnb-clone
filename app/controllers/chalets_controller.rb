@@ -39,7 +39,7 @@ class ChaletsController < ApplicationController
   end
 
   def update
-    Chalet.update(chalet_params)
+    @chalet.update(chalet_params)
     redirect_to chalet_path(@chalet)
   end
 

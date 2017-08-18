@@ -1,7 +1,7 @@
-<h1>Edit your <%= @chalet.name %></h1>
 <div class="pagewrapper" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= image_path "background-landing.png"%>)">
   <div class="container">
     <div class="row">
+    <% title = "Edit" %>
       <div class="col-sm-4 col-sm-offset-4 bg-fade padded device-form-container">
         <%= render 'form', chalet: @chalet %>
        </div>
