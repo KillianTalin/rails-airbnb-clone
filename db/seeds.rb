@@ -170,7 +170,7 @@ chalets_attributes = [
   {
     name:            "Refuge le Nant du Beurre ",
     capacity:        30,
-    city:            "Beaufort",
+    city:            "73270 Beaufort",
     location:        "Massif du Beaufortain",
     latitude:        45.582882,
     longitude:       6.560423,
@@ -189,7 +189,7 @@ chalets_attributes = [
   {
     name:            "Refuge de la Croix de fer",
     capacity:        84,
-    city:            "Beaufort",
+    city:            "Sallanches",
     location:        "Massif du Beaufortain",
     latitude:        45.795197,
     longitude:       6.610345,
@@ -208,7 +208,7 @@ chalets_attributes = [
   {
     name:            "Refuge du Col de la Croix",
     capacity:        66,
-    city:            "Beaufort",
+    city:            "Megève",
     location:        "Massif du Beaufortain",
     latitude:        45.722057,
     longitude:       6.717266,
