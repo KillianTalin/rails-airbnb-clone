@@ -14,12 +14,25 @@ User.destroy_all
 puts 'Creating users...'
 users_attributes = [
   {
-    email:           "titi@toto.com",
-    password:        "123456",
+    email:      "killian.talin@gmail.com",
+    password:   "123456",
+    first_name: "Killian",
+    last_name:  "Talin",
+    photo_urls: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAARFAAAAJDgwZDNiZjI0LTQ3MDctNDcxYS04YjU4LTI5ZDcxM2RhZjRhYQ.jpg"
   },
   {
-    email:           "paul@paul.com",
-    password:        "123456",
+    email:      "etienne.porche@gmail.com",
+    password:   "123456",
+    first_name: "Etienne",
+    last_name:  "Porche",
+    photo_urls: "https://static1.squarespace.com/static/56640987e4b0d6ae9d0ef8a9/t/56643040e4b00c1d30b3d89d/1449406551711/"
+  },
+  {
+    email:      "julien.colletas@gmail.com"
+    password:   "123456",
+    first_name: "Julien",
+    last_name:  "Colletas",
+    photo_urls: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/7/005/096/3ed/38ea278.jpg"
   }
 ]
 User.create!(users_attributes)
@@ -39,9 +52,10 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
-    user:         User.all.sample,
+    user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls: ['https://lh3.googleusercontent.com/-MbVZ5BVlaeA/WAInJcEfwCI/AAAAAAAAs5I/ywJ6rZR9Si4bUEvjuh3zxzEHkpqFISyZQCLIB/w645-h320-k-no/']
+    description:     "Le refuge des Cosmiques domine la vallée de Chamonix. Rapide d'accès depuis l'aiguille du Midi, il est idéalement placé au pied de l'arête des Cosmiques, et au coeur d'un des secteurs les plus intéressants du massif du Mont-Blanc autour du col du Midi.",
+    photo_urls: ['http://img-4.linternaute.com/y-grFa5odcs_W92h_G5mXl20kJg=/1240x/smart/image-cms/10254657.jpg']
   },
   {
     name:            "Refuge du Goûter",
@@ -56,9 +70,10 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
-    user:         User.all.sample,
+    user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls: ['https://www.chamonix.net/sites/default/files/refuge-du-gouter.jpg?itok=uog9XUVO']
+    description:     "Le plus haut refuge gardé en France, quasiment sur le sommet de l'Aiguille du Goûter. Les couchers de soleil y sont intéressants, mais les nuits brèves. Le nouveau refuge est un bâtiment aux normes Haute Qualité Environnementale (HQE).",
+    photo_urls: ['http://www.france-montagnes.com/sites/default/files/activite/projet_refuge_du_gouter.jpg']
   },
   {
     name:            "Refuge de Tête Rousse",
@@ -73,8 +88,9 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
-    user:         User.all.sample,
-    last_renovation: "14 janvier 2014",
+    user:            User.all.sample,
+    last_renovation: "14 janvier 2003",
+    description:     "Dans un site de Haute montagne, près du petit glacier de Tête Rousse et face à la très belle face NW de l'Aiguille de Bionnassay, un très beau et très confortable refuge (rénové en 2003).",
     photo_urls: ['http://magdescimes.com/wp-content/uploads/2012/07/25156292452_10151047309892453.jpg']
 
   },
@@ -91,9 +107,10 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
-    user:         User.all.sample,
+    user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls: ['http://www.refuges-montagne.info/images/vallot-00.jpg']
+    description:     "L'Abri VALLOT est un lieu de secours pour les alpinistes en difficulté (notamment ceux sortant des voies sud du Mont-Blanc). Il n'est pas destiné à l'hébergement régulier des alpinistes candidats au Mont-Blanc. Merci de respecter ces dispositions.",
+    photo_urls: ['https://media.camptocamp.org/c2corg_active/1377244675_742558861.jpg']
   },
   {
     name:            "Refuge Robert-Blanc",
@@ -108,9 +125,10 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
-    user:         User.all.sample,
+    user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls:      ['http://www.refuges-montagne.info/images/vallot-00.jpg']
+    description:     "Le refuge Robert Blanc se situe à 2750 m d’altitude, en Savoie, sur la commune de Bourg-Saint-Maurice, sur une variante du tour du Mont-Blanc, au pied de l’Aiguille des Glaciers.",
+    photo_urls:      ['http://media.sit.savoie-mont-blanc.com/original/566689/4-1535764.jpg']
   },
   {
     name:            "Refuge d'Argentière'",
@@ -125,9 +143,10 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
-    user:         User.all.sample,
+    user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls: ['http://www.refuges-montagne.info/images/argentiere-00.jpg']
+    description:     "Un refuge d'aspect inhabituel avec son niveau supérieur en encorbellement et réchauffé par son bardage sapin.Site «Haute Montagne» neige, rocs et glace. Une vue particulièrement impressionnante des faces nord de la chaîne allant de l'Aiguille verte au Mont Dolent.",
+    photo_urls: ['http://img-4.linternaute.com/F69HGXKdvh81SnCnRiLmxP7sFBQ=/1240x/smart/image-cms/10255074.jpg']
 },
 
   {
@@ -143,9 +162,10 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
-    user:         User.all.sample,
+    user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls: ['https://lh3.googleusercontent.com/-MbVZ5BVlaeA/WAInJcEfwCI/AAAAAAAAs5I/ywJ6rZR9Si4bUEvjuh3zxzEHkpqFISyZQCLIB/w645-h320-k-no/']
+    description:     "Dans le massif du Grand-Mont, au chalets les Rognoux, sur les pistes de ski d'Arêches. Le refuge se compose de 3 chambres de 4 pers et de 1 dortoire de 12 pers. Les duvet et couverture sont fournis.",
+    photo_urls: ['http://montagne-oisans.com/wp-content/modules/module_sliders/contenu/images/1_3.jpg']
   },
   {
     name:            "Refuge le Nant du Beurre ",
@@ -160,9 +180,11 @@ chalets_attributes = [
     cb_accepted:     true,
     opening_date:    20170320,
     closing_date:    20170830,
-    user:         User.all.sample,
+    user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls: ['https://www.chamonix.net/sites/default/files/refuge-du-gouter.jpg?itok=uog9XUVO']
+    description:     "Situé sur une vallée ouverte et ensoleillée, il offre un vue exceptionnelle sur les autres massifs : Lauzière, Cheval noir, Vanoise, plus au loin, Meije, Ecrins...Ces couchers de soleil sur la Lauzière restent un beau cadeau ! Lieu sauvage et paisible qui vous convie à la contemplation.
+                      L'hiver vous pouvez venir en ski de fond (le refuge est situé sur le domaine nordique de Grand Naves 73260), en raquette, ski de randonnée, chien de traineau.",
+    photo_urls: ['http://montagne-oisans.com/wp-content/modules/module_sliders/contenu/images/1_80.jpg']
   },
   {
     name:            "Refuge de la Croix de fer",
@@ -179,7 +201,8 @@ chalets_attributes = [
     closing_date:    20170830,
     user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls: ['http://magdescimes.com/wp-content/uploads/2012/07/25156292452_10151047309892453.jpg']
+    description:     "De moins en moins isolé du fait de l'extension du domaine skiable de Saint-Sorlin, le refuge reste un bel objectif de balade dans un environnement de haute montagne.",
+    photo_urls: ['http://www.lesothers.com/wp-content/uploads/2017/03/gervasutti.jpg']
 
   },
   {
@@ -197,7 +220,8 @@ chalets_attributes = [
     closing_date:    20170830,
     user:            User.all.sample,
     last_renovation: "14 janvier 2014",
-    photo_urls: ['http://www.refuges-montagne.info/images/vallot-00.jpg']
+    description:     "Interessant pour faire une etape autour de ces endroits magnifiques que sont le col du Lauzon et les aguilles de la Jarjatte. Meme s'il est un peu bas/pas très sauvage.",
+    photo_urls: ['http://www.lesothers.com/wp-content/uploads/2017/03/refuge-INSOLITE-EN-slov%C3%A8nie.jpg']
   }
 ]
 Chalet.create!(chalets_attributes)
