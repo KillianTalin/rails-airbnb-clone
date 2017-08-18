@@ -9,6 +9,12 @@
     <div class="col-xs-8">
 
       <div style="width: 100%; height: 10px; border-bottom: 1px solid grey; opacity: 0.7; text-align: center; position : relative; margin-bottom: -10px!important; margin-top: 20px;"></div>
+      <h2 class="title uppercased"> <%= @chalet.name %>
+
+
+
+      </h2>
+      <p class="title font-bolder"> <%= @chalet.latitude %>, <%= @chalet.longitude %></p>
       <h2 class="title uppercased"> <%= @chalet.name %></h2>
       <p class="title font-bolder"> <i class="fa fa-globe" aria-hidden="true"> </i>
       <%= @chalet.latitude %>, <%= @chalet.longitude %></p>
@@ -50,9 +56,12 @@
       <div class="margin-top-classic">
         <% if @chalet.user == current_user  %>
           <div class="row padded bg-white box-shadowed">
+          <h4>Taux d'occupation actuel: %</h4>
+          <h5>Statistiques sur ces 30 derniers jours:</h5>
 
+            <p>Nombre de réservations: </p>
 
-            <p>Ce chalet a été reservé <%= @reserved_count%> fois ces 30 derniers jours </p>
+            <p>Taux d'occupation: %</p>
             <%= link_to edit_chalet_path(@chalet) do %>
               <span class="btn btn-warning">Edit</span>
             <% end %>
