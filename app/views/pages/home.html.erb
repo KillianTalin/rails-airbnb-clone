@@ -104,30 +104,10 @@
         <form action="/chalets" class="form-inline" method="get">
           <label class="sr-only" for="location">Location</label>
           <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
-
-<<<<<<< HEAD
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= image_path "background-landing.png"%>)">
-  <div class="banner-content">
-    <h1>Welcome to Paradise.</h1>
-    <p>Find a bed in unique Cabins all accross the French Alps.</p>
-    <div class="banner-form">
-      <form action="/chalets" class="form-inline" method="get">
-        <label class="sr-only" for="location">Location</label>
-        <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
-
-        <label class="sr-only" for="check-in">Check-in</label>
-        <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in" id="start">
-
-        <label class="sr-only" for="check-out">Check-out</label>
-        <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" id="end">
-=======
           <label class="sr-only" for="check-in">Check-in</label>
-          <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in">
-
+          <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in" id="start">
           <label class="sr-only" for="check-out">Check-out</label>
-          <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" >
->>>>>>> master
-
+          <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" id="end">
           <label class="sr-only" for="guest_number"> Guest Number </label>
             <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="guest_number">
               <option selected>Guests</option>
@@ -142,7 +122,6 @@
       </div>
     </div>
   </div>
-<<<<<<< HEAD
 </div>
 <% content_for(:after_js) do %>
 <script type="text/javascript">
@@ -158,10 +137,6 @@
   });
 </script>
 <% end %>
-      <!-- Code your cards  here -->
-=======
-<% end %>
->>>>>>> master
 
 
 
