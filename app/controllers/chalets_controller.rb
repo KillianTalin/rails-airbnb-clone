@@ -1,4 +1,5 @@
 class ChaletsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   before_action :set_chalet, only: [ :show, :edit, :update, :destroy]
   def index
     # @chalets = Chalet.all
@@ -19,6 +20,13 @@ class ChaletsController < ApplicationController
   def show
     @booking = Booking.new
     @reserved_count = Booking.where(chalet_id: @chalet).where("created_at < ?", 30.days.ago).count
+    # 1.Total capacity = 30 nuitées * capacity
+    # 2.Occupation = sum( |booking| booking.nb_nuités * booking.guest_number)
+    # Taux = 2/1
+
+
+    @guests_of_month = Booking.where(chalet_id: @chalet)   .where("start_date < ?", 30.days.ago)   .sum(:guest_number)
+
   end
 
 

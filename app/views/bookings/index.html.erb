@@ -23,7 +23,7 @@
           <div class="card_host">
             <div class="card_statut">
                 <% if trip.statut == "Pending"%>
-                  <span class="label label-default"><%= trip.statut %></span>
+                  <span class="label label-warning"><%= trip.statut %></span>
                 <% end %>
                 <% if trip.statut == "Annulé"%>
                   <span class="label label-danger"><%= trip.statut %></span>
@@ -48,7 +48,7 @@
 
             <div class="card_price">
               <p> Price: <%= trip.checkout.to_f %> $</p>
-              <% if trip.statut == "Validé" %>
+              <% if trip.statut == "Validé" || "Pending" %>
                 <%= link_to booking_annule_path(trip) do %>
                   <span class="btn btn-danger">Annuler</span>
                 <% end %>
@@ -94,7 +94,7 @@
 
             <div class="card_price">
               <p> Price: <%= trip.checkout.to_f %> $</p>
-              <% if trip.statut == "Validé" %>
+              <% if trip.statut == "Validé" || "Pending" %>
                 <%= link_to booking_annule_path(trip) do %>
                   <span class="btn btn-danger">Annuler</span>
                 <% end %>
@@ -158,10 +158,15 @@
   </div>
 
 <div class="tab-pane" id="profile" role="tabpanel">
+
+<div class="list_book">
   <% unless @chalet.empty? %>
-        <h1>Your chalet  </h1>
-  <div class="card_chalet">
-    <div class = "chalet">
+      <h1>Your chalet  </h1>
+
+
+          <div class="card_host">
+
+      <div class = "chalet">
 
     <% @chalet.each do |chalet|  %>
         <div class="col-xs-12 col-sm-4 col-md-4">
@@ -171,7 +176,7 @@
               style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)),
               url('<%= chalet.photos? ? cl_image_path(chalet.photos.first.path, height: 300, width: 400, crop: :fill) : 'http://placehold.it/400x300' %>')">
               <div class="card-description">
-                <h4 class="card-category"><%= chalet.name %> <%= @place %>/<%= chalet.capacity %></h4>
+                <h4 class="card-category"><%= chalet.name %></h4>
               </div>
             </div>
           <% end %>
@@ -198,12 +203,13 @@
         </div>
     <% end %>
     <% end %>
+
+  </div>
+
+
   </div>
 </div>
 
-
-
-<div class="list_book">
     <h1>Your bookings </h1>
       <% if @bookings_host.empty? %>
         <% if @chalet.empty? %>
@@ -213,10 +219,13 @@
         <% end %>
       <% end %>
 
+
+
+
+
       <% unless @bookings_host_now.empty? %>
         <h3>Your current booking is: </h3>
         <% @bookings_host_now.each do |host|%>
-          <div class="card_host">
             <div class="card_statut">
               <% if host.statut == "Pending"%>
                 <span class="label label-warning"><%= host.statut %></span>

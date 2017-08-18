@@ -9,8 +9,15 @@
     <div class="col-xs-8">
 
       <div style="width: 100%; height: 10px; border-bottom: 1px solid grey; opacity: 0.7; text-align: center; position : relative; margin-bottom: -10px!important; margin-top: 20px;"></div>
-      <h2 class="title uppercased"> <%= @chalet.name %></h2>
+      <h2 class="title uppercased"> <%= @chalet.name %>
+
+
+
+      </h2>
       <p class="title font-bolder"> <%= @chalet.latitude %>, <%= @chalet.longitude %></p>
+      <h2 class="title uppercased"> <%= @chalet.name %></h2>
+      <p class="title font-bolder"> <i class="fa fa-globe" aria-hidden="true"> </i>
+      <%= @chalet.latitude %>, <%= @chalet.longitude %></p>
       <p class="title font-bolder"> <%= @chalet.altitude %>m d'altitude</p>
       <a href="#"><i class="fa fa-star"></i></a>
       <a href="#"><i class="fa fa-star"></i></a>
@@ -20,11 +27,7 @@
       <div style="width: 100%; height: 10px; border-bottom: 1px solid grey; opacity: 0.7; text-align: center; position : relative; margin-bottom: 5px; margin-top: 5px;"></div>
       <br>
       <p class="chalet-text text-black font-lighter">
-      Le refuge des Cosmiques domine la vallée de Chamonix. Rapide d'accès depuis l'aiguille du Midi, il est idéalement placé au pied de l'arête des Cosmiques, et au coeur d'un des secteurs les plus intéressants du massif du Mont-Blanc autour du col du Midi.</p>
-      <br>
-      <p class="chalet-text text-black font-lighter">On peut ainsi gravir depuis le refuge des Cosmiques la voie des 3 Monts, en direction du Mont-Blanc, mais aussi de nombreuses classiques. L'hiver en goulotte de glace, avec la goulotte Gabarrou-Albinoni, les voies du triangle du Tacul (goulotte Chéré), la goulotte des Cosmiques. Et l'été les voies d'escalade de l'aiguille du Midi ou des piliers du Tacul.
-      Confortable et moderne, le refuge des Cosmiques est ouvert une grande partie de l'année. Le seul problème est souvent de résister à l'altitude élevée (c'est le plus haut refuge gardé du massif du Mont-Blanc après le Goûter), rendue brutale par le rapide accès depuis l'aiguille du Midi : acclimatation très conseillée !
-      </p>
+      <%= @chalet.description %></p>
       <div style="width: 100%; height: 10px; border-bottom: 1px solid grey; opacity: 0.7; text-align: center; position : relative; margin-bottom: 5px; margin-top: 5px;"></div>
 
       <div class="row text-emerald">
@@ -53,9 +56,12 @@
       <div class="margin-top-classic">
         <% if @chalet.user == current_user  %>
           <div class="row padded bg-white box-shadowed">
+          <h4>Taux d'occupation actuel: %</h4>
+          <h5>Statistiques sur ces 30 derniers jours:</h5>
 
+            <p>Nombre de réservations: </p>
 
-            <p>Ce chalet a été reservé <%= @reserved_count%> fois ces 30 derniers jours </p>
+            <p>Taux d'occupation: %</p>
             <%= link_to edit_chalet_path(@chalet) do %>
               <span class="btn btn-warning">Edit</span>
             <% end %>
