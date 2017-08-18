@@ -4,10 +4,10 @@ class Booking < ApplicationRecord
   validates :start_date, :end_date, :presence => true
   validates :user_id, :presence => true
   validates :chalet_id, :presence => true
-  validates :statut, inclusion: {in: [ "Pending", "Validé", "Annulé"]}
+  validates :statut, inclusion: {in: [ "Pending", "Validé", "Annulé", "Refusé"]}
   before_save :cant_reserve_own_chalet?
   # before_save :cant_book_before_today?
-
+  after_create :set_checkout
 
   def cant_reserve_own_chalet?
     if self.user == self.chalet.user
@@ -17,11 +17,6 @@ class Booking < ApplicationRecord
 
   def during
     (self.end_date.to_time - self.start_date.to_time).to_i/ 86400
-  end
-
-  def price
-  self.checkout = (during * self.chalet.price).to_f
-  self.save
   end
 
   def before
@@ -36,21 +31,26 @@ class Booking < ApplicationRecord
     (self.end_date.to_time - Time.now).to_i / 86400
   end
 
-  def passed
+  def passed?
     (finish < 0) && (before < 0)
   end
-
   # def cant_book_before_today?
   #   if passed
   #     raise "error"
   #   end
   # end
-
-  def futur
+  def futur?
     before > 0
   end
 
-  def now
+  def now?
     (finish > 0) && (before < 0)
+  end
+
+  private
+
+  def set_checkout
+    self.checkout = (during * chalet.price * guest_number).to_f
+    self.save
   end
 end

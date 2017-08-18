@@ -14,6 +14,7 @@ class ChaletsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @reserved_count = Booking.where(chalet_id: @chalet).where("created_at < ?", 30.days.ago).count
   end
 
   def new

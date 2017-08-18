@@ -11,11 +11,34 @@
   align-items: center;
 }
 
+.card_chalet {
+  color: black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 7px grey;
+  margin-bottom: 26px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chalet {
+flex: 1 0 auto;
+}
+
 .card_info {
   flex: 1 0 auto;
 }
 
-.card_photo {
-  flex: 0 0 20%;
+.card_statut {
+  flex: 0 0 10%;
 
+
+}
+.card_price {
+  flex: 0 0 auto;
+}
+
+.card_invite {
+  flex: 0 0 24%;
 }

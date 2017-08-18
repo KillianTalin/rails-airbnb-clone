@@ -28,7 +28,17 @@
       </div>
         <div class="booking-container col-xs-3 col-xs-offset-3 bg-white padded device-form-container">
         <div>
-        <h3>Book Now.</h3>
+        <% if @chalet.user == current_user  %>
+        <p>Ce chalet a était reservé <%= @reserved_count%> fois ces 30 derniers jours </p>
+          <%= link_to edit_chalet_path(@chalet) do %>
+            <span class="btn btn-warning">Edit</span>
+          <% end %>
+            <%= link_to "Delete", booking_path(@chalet),
+                   :class => "btn btn-danger",
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+          <% else %>
+          <h3>Book Now.</h3>
            <div class="form-inputs color-green">
               <%= simple_form_for [@chalet, @booking] do |f| %>
                   <div class="col-xs-6">
@@ -45,6 +55,7 @@
                 </div>
               <% end %>
               </div>
+              <% end %>
               </div>
              </div>
           </div>
