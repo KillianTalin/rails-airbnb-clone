@@ -1,13 +1,9 @@
-
 <% img_url = "http://res.cloudinary.com/dygmbrr3a/image/upload/" + @chalet.photos.first.path %>
 <div class="banner-photo" style="background-image: url('<%= img_url %>');">
 </div>
-
-
 <div class="container">
   <div class="row ">
     <div class="col-xs-8">
-
       <div style="width: 100%; height: 10px; border-bottom: 1px solid grey; opacity: 0.7; text-align: center; position : relative; margin-bottom: -10px!important; margin-top: 20px;"></div>
       <h2 class="title uppercased"> <%= @chalet.name %></h2>
       <p class="title font-bolder"> <i class="fa fa-globe" aria-hidden="true"> </i>
@@ -23,35 +19,25 @@
       <p class="chalet-text text-black font-lighter">
       <%= @chalet.description %></p>
       <div style="width: 100%; height: 10px; border-bottom: 1px solid grey; opacity: 0.7; text-align: center; position : relative; margin-bottom: 5px; margin-top: 5px;"></div>
-
       <div class="row text-emerald">
-
         <div class="col-xs-4 div-feature margin-top-classic margin-bottom-classic";>
           <i class="fa fa-bed fa-4x"></i>
           <p> <%=@chalet.price%> places disponibles</p>
         </div>
-
         <div class="col-xs-4 div-feature margin-top-classic margin-bottom-classic";>
           <i class="fa fa-moon-o fa-4x"></i>
           <p>Arrivée de nuit</p>
         </div>
-
         <div class="col-xs-4 div-feature margin-top-classic margin-bottom-classic">
           <i class="fa fa-medkit fa-4x"></i>
           <p>Poste de secours</p>
         </div>
-
       </div>
     </div>
-
-
-
     <div class="col-xs-4">
       <div class="margin-top-classic">
         <% if @chalet.user == current_user  %>
           <div class="row padded bg-white box-shadowed">
-
-
             <p>Ce chalet a été reservé <%= @reserved_count%> fois ces 30 derniers jours </p>
             <%= link_to edit_chalet_path(@chalet) do %>
               <span class="btn btn-warning">Edit</span>
@@ -62,7 +48,6 @@
                    data: { confirm: "Are you sure?" } %>
           </div>
           <% else %>
-
             <div class="row padded bg-emerald box-shadowed">
               <div class="col-xs-12">
                  <p class="title text-align text-center text-white text-ms">À partir de <span id="displayed-price"><%= @chalet.price %></span>€ par nuit </p>
@@ -71,26 +56,21 @@
             <div class="row padded bg-white box-shadowed">
               <div class="col-xs-6 ">
                 <%= simple_form_for [@chalet, @booking] do |f| %>
-                  <%= f.input :start_date, as: :string, input_html: {class: "datepicker"}, required: true, autofocus: true, placeholder: "Arrival", label: false %>
+                  <%= f.input :start_date, as: :string, input_html: {class: "datepicker"}, required: true, placeholder: "Arrival", label: false %>
               </div>
-
               <div class="col-xs-6">
-                <%= f.input :end_date, as: :string, input_html: {class: "datepicker"}, required: true, autofocus: true, placeholder: "Departure", label: false %>
+                <%= f.input :end_date, as: :string, input_html: {class: "datepicker"}, required: true, placeholder: "Departure", label: false %>
               </div>
-
               <div class="col-xs-12">
                 <%= f.input :guest_number, required: true, autofocus: true, placeholder: "Guests Number", label: false, input_html: { min: '1', step: 'any' } %>
               </div>
-
               <div class="col-xs-12 text-center">
                 <%= f.button :submit, "Book Now !", class: "btn-medium" %>
-              <p>Vous ne serez débité que si vous confirmez</p>
+                <p>Vous ne serez débité que si vous confirmez</p>
               </div>
-
             </div>
-
-            <% end %>
-            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

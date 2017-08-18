@@ -35,13 +35,16 @@ class BookingsController < ApplicationController
   def create
     @chalet = Chalet.find(params[:chalet_id])
     @booking = Booking.new(booking_params)
+
+    @booking.start_date = Date.strptime(params[:booking][:start_date], "%m/%d/%Y") unless params[:booking][:start_date].blank?
+    @booking.end_date = Date.strptime(params[:booking][:end_date], "%m/%d/%Y") unless params[:booking][:end_date].blank?
     @booking.chalet = @chalet
     @booking.user = current_user
     @booking.statut = "Pending"
     if @booking.save
       redirect_to bookings_path
     else
-      render :new
+      render 'chalets/show'
     end
   end
 
