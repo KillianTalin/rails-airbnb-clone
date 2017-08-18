@@ -7,3 +7,13 @@ class PagesController < ApplicationController
     @selection_beaufortain = Chalet.where(location: "Massif du Beaufortain").limit(3)
   end
 end
+
+
+# Note pour reviews:
+# <% if @review.errors.any? %>
+#   document.getElementById('new_review').innerHTML = "<%= j render 'reviews/form, restaurant: @restaurant, review: @review %>"
+#<% else %>
+# const new_review = "<%= j render 'reviews/show, review: @review %>"
+# document.getElementById('reviews').insertAdjacentHTML('beforeend', new_review);
+#<% end %>
+
