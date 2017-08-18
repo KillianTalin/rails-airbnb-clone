@@ -2,20 +2,23 @@ class ChaletsController < ApplicationController
   before_action :set_chalet, only: [ :show, :edit, :update, :destroy]
   def index
     # @chalets = Chalet.all
-
+    #@chalets = Chalet.where params [:location]
     @chalets = Chalet.where.not(latitude: nil, longitude: nil)
-
-    @hash = Gmaps4rails.build_markers(@chalets) do |chalet, marker|
+    @results = @chalets.where(location: params[:location])
+    @hash = Gmaps4rails.build_markers(@results) do |chalet, marker|
       marker.lat chalet.latitude
       marker.lng chalet.longitude
       # marker.infowindow render_to_string(partial: "/chalets/map_box", locals: { chalet: chalet })
     end
   end
 
+
   def show
     @booking = Booking.new
     @reserved_count = Booking.where(chalet_id: @chalet).where("created_at < ?", 30.days.ago).count
   end
+
+
 
   def new
     @chalet = Chalet.new

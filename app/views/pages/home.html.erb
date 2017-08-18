@@ -1,16 +1,132 @@
-
+<% if user_signed_in? %>
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= image_path "background-landing.png"%>)">
+    <div class="search-bar">
+      <div class="row">
+        <div class="col-xs-6 col-sm-12 col-md-12">
+          <div class="banner-form">
+            <form action="/chalets" class="form-inline" method="get">
+              <label class="sr-only" for="location">Location</label>
+              <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
+              <label class="sr-only" for="check-in">Check-in</label>
+              <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in">
+              <label class="sr-only" for="check-out">Check-out</label>
+              <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" >
+              <label class="sr-only" for="guest_number"> Guest Number </label>
+                <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="guest_number">
+                  <option selected>Guests</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                  <option value="4">Four</option>
+                  <option value="5">More than four</option>
+                </select>
+              <button type="submit" class="btn btn-primary">Let's Go</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="top-cards">
+      <div class="cards">
+        <div class="row">
+          <h2> Les meilleurs chalets du Mont-Blanc</h2>
+          <% @selection_mont_blanc.each do |chalet| %>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="card">
+              <%= link_to chalet_path(chalet) do %>
+                <div class="card-body"
+                  style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)),
+                  url('<%= chalet.photos? ? cl_image_path(chalet.photos.first.path, height: 300, width: 400, crop: :fill) : 'http://placehold.it/400x300' %>')">
+                  <div class="card-description">
+                    <h4 class="card-category"><%= chalet.name %></h4>
+                  </div>
+                </div>
+              <% end %>
+                <div class="card-footer">
+                  <ul>
+                    <li>
+                      <p><%= chalet.capacity %> places</p>
+                    </li>
+                    <li>
+                      <div class="icons footer-icons">
+                        <% [3, 4, 5].sample.times do %>
+                          <a href="#"><i class="fa fa-star"></i></a>
+                        <% end %>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="row">
+          <h2> Les meilleurs chalets du Beaufortain</h2>
+          <% @selection_beaufortain.each do |chalet| %>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="card">
+              <%= link_to chalet_path(chalet) do %>
+                <div class="card-body"
+                  style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)),
+                  url('<%= chalet.photos? ? cl_image_path(chalet.photos.first.path, height: 300, width: 400, crop: :fill) : 'http://placehold.it/400x300' %>')">
+                  <div class="card-description">
+                    <h4 class="card-category"><%= chalet.name %></h4>
+                  </div>
+                </div>
+              <% end %>
+                <div class="card-footer">
+                  <ul>
+                    <li>
+                      <p><%= chalet.capacity %> places</p>
+                    </li>
+                    <li>
+                      <div class="icons footer-icons">
+                        <% [3, 4, 5].sample.times do %>
+                          <a href="#"><i class="fa fa-star"></i></a>
+                        <% end %>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+<% else %>
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= image_path "background-landing.png"%>)">
     <div class="banner-content">
       <h1>Welcome to Paradise.</h1>
       <p>Find a bed in unique Cabins all accross the French Alps.</p>
-      <a href="/chalets" class="btn btn-medium">Book now !</a>
+      <div class="banner-form">
+        <form action="/chalets" class="form-inline" method="get">
+          <label class="sr-only" for="location">Location</label>
+          <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
+
+          <label class="sr-only" for="check-in">Check-in</label>
+          <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in">
+
+          <label class="sr-only" for="check-out">Check-out</label>
+          <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" >
+
+          <label class="sr-only" for="guest_number"> Guest Number </label>
+            <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="guest_number">
+              <option selected>Guests</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="4">Four</option>
+              <option value="5">More than four</option>
+            </select>
+          <button type="submit" class="btn btn-primary">Let's Go</button>
+        </form>
+      </div>
     </div>
   </div>
-        <!-- Code your cards  here -->
+<% end %>
 
-<!--If user sign in -->
 
-<!-- Pour la barre de recherche : plutôt form for que simple form for  -->
 
-<!-- If user sign out -->
 
