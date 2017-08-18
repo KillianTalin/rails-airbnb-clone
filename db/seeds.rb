@@ -18,21 +18,21 @@ users_attributes = [
     password:   "123456",
     first_name: "Killian",
     last_name:  "Talin",
-    photo_urls: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAARFAAAAJDgwZDNiZjI0LTQ3MDctNDcxYS04YjU4LTI5ZDcxM2RhZjRhYQ.jpg"
+    photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAARFAAAAJDgwZDNiZjI0LTQ3MDctNDcxYS04YjU4LTI5ZDcxM2RhZjRhYQ.jpg"
   },
-  {
-    email:      "etienne.porche@gmail.com",
-    password:   "123456",
-    first_name: "Etienne",
-    last_name:  "Porche",
-    photo_urls: "https://static1.squarespace.com/static/56640987e4b0d6ae9d0ef8a9/t/56643040e4b00c1d30b3d89d/1449406551711/"
-  },
+  # {
+  #   email:      "etienne.porche@gmail.com",
+  #   password:   "123456",
+  #   first_name: "Etienne",
+  #   last_name:  "Porche",
+  #   photo: "https://static1.squarespace.com/static/56640987e4b0d6ae9d0ef8a9/t/56643040e4b00c1d30b3d89d/1449406551711/"
+  # },
   {
     email:      "julien.colletas@gmail.com",
     password:   "123456",
     first_name: "Julien",
     last_name:  "Colletas",
-    photo_urls: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/7/005/096/3ed/38ea278.jpg"
+    photo: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/7/005/096/3ed/38ea278.jpg"
   }
 ]
 User.create!(users_attributes)
@@ -152,7 +152,7 @@ chalets_attributes = [
   {
     name:            "Refuge l'Alpage",
     capacity:        100,
-    city:            "Chamonix-Mont-Blanc",
+    city:            "Arèches",
     location:        "Massif du Beaufortain",
     latitude:        45.649597,
     longitude:       6.564803,
@@ -170,7 +170,7 @@ chalets_attributes = [
   {
     name:            "Refuge le Nant du Beurre ",
     capacity:        30,
-    city:            "Saint-Gervais-les-Bains",
+    city:            "Beaufort",
     location:        "Massif du Beaufortain",
     latitude:        45.582882,
     longitude:       6.560423,
@@ -189,7 +189,7 @@ chalets_attributes = [
   {
     name:            "Refuge de la Croix de fer",
     capacity:        84,
-    city:            "Saint-Gervais-les-Bains",
+    city:            "Beaufort",
     location:        "Massif du Beaufortain",
     latitude:        45.795197,
     longitude:       6.610345,
@@ -208,7 +208,7 @@ chalets_attributes = [
   {
     name:            "Refuge du Col de la Croix",
     capacity:        66,
-    city:            "Saint-Gervais-les-Bains",
+    city:            "Beaufort",
     location:        "Massif du Beaufortain",
     latitude:        45.722057,
     longitude:       6.717266,
