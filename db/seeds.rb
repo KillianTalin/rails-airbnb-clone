@@ -28,7 +28,7 @@ users_attributes = [
     photo_urls: "https://static1.squarespace.com/static/56640987e4b0d6ae9d0ef8a9/t/56643040e4b00c1d30b3d89d/1449406551711/"
   },
   {
-    email:      "julien.colletas@gmail.com"
+    email:      "julien.colletas@gmail.com",
     password:   "123456",
     first_name: "Julien",
     last_name:  "Colletas",
@@ -151,7 +151,7 @@ chalets_attributes = [
 
   {
     name:            "Refuge l'Alpage",
-    capacity:        130,
+    capacity:        100,
     city:            "Chamonix-Mont-Blanc",
     location:        "Massif du Beaufortain",
     latitude:        45.649597,
@@ -169,7 +169,7 @@ chalets_attributes = [
   },
   {
     name:            "Refuge le Nant du Beurre ",
-    capacity:        120,
+    capacity:        30,
     city:            "Saint-Gervais-les-Bains",
     location:        "Massif du Beaufortain",
     latitude:        45.582882,
@@ -188,7 +188,7 @@ chalets_attributes = [
   },
   {
     name:            "Refuge de la Croix de fer",
-    capacity:        74,
+    capacity:        84,
     city:            "Saint-Gervais-les-Bains",
     location:        "Massif du Beaufortain",
     latitude:        45.795197,
@@ -207,7 +207,7 @@ chalets_attributes = [
   },
   {
     name:            "Refuge du Col de la Croix",
-    capacity:        100,
+    capacity:        66,
     city:            "Saint-Gervais-les-Bains",
     location:        "Massif du Beaufortain",
     latitude:        45.722057,
