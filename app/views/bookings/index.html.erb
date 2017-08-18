@@ -1,7 +1,7 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Trip</a>
+    <a class="nav-link" data-toggle="tab" href="#home" role="tab">Trip</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Host</a>
@@ -31,7 +31,7 @@
                  <% if trip.statut == "Validé"%>
                   <span class="label label-success"><%= trip.statut %></span>
                 <% end %>
-              </div>
+            </div>
             <div class="card_invite">
                 <!-- host.user.name -->
               <p> Contact <%= trip.user.email %> </p>
@@ -66,7 +66,7 @@
       <% unless @bookings_guest_futur.empty? %>
         <h3>Futur</h3>
         <% @bookings_guest_futur.each do |trip|%>
-           <div class="card_host">
+          <div class="card_host">
             <div class="card_statut">
                 <% if trip.statut == "Pending"%>
                   <span class="label label-warning"><%= trip.statut %></span>
@@ -77,7 +77,7 @@
                  <% if trip.statut == "Validé"%>
                   <span class="label label-success"><%= trip.statut %></span>
                 <% end %>
-              </div>
+            </div>
             <div class="card_invite">
                 <!-- host.user.name -->
               <p> Contact <%= trip.user.email %> </p>
@@ -100,9 +100,9 @@
                 <% end %>
               <% end %>
               <div>
-              <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
-                <span class="btn btn-primary">More details</span>
-              <% end %>
+                <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
+                  <span class="btn btn-primary">More details</span>
+                <% end %>
               </div>
             </div>
           </div>
@@ -112,18 +112,18 @@
       <% unless @bookings_guest_past.empty? %>
         <h3>Your past trips</h3>
         <% @bookings_guest_past.each do |trip|%>
-           <div class="card_host">
+          <div class="card_host">
             <div class="card_statut">
-                <% if trip.statut == "Pending"%>
-                  <span class="label label-warning"><%= trip.statut %></span>
-                <% end %>
-                <% if trip.statut == "Annulé"%>
-                  <span class="label label-danger"><%= trip.statut %></span>
-                <% end %>
-                 <% if trip.statut == "Validé"%>
-                  <span class="label label-success"><%= trip.statut %></span>
-                <% end %>
-              </div>
+              <% if trip.statut == "Pending"%>
+                <span class="label label-warning"><%= trip.statut %></span>
+              <% end %>
+              <% if trip.statut == "Annulé"%>
+                <span class="label label-danger"><%= trip.statut %></span>
+              <% end %>
+              <% if trip.statut == "Validé"%>
+                <span class="label label-success"><%= trip.statut %></span>
+              <% end %>
+            </div>
             <div class="card_invite">
                 <!-- host.user.name -->
               <p> Contact <%= trip.user.email %> </p>
@@ -146,9 +146,9 @@
                 <% end %>
               <% end %>
               <div>
-              <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
-                <span class="btn btn-primary">More details</span>
-              <% end %>
+                <%= link_to chalet_booking_path(trip.chalet_id, trip.id) do %>
+                  <span class="btn btn-primary">More details</span>
+                <% end %>
               </div>
             </div>
           </div>
@@ -187,7 +187,7 @@
                   <%= link_to edit_chalet_path(chalet) do %>
                     <span class="btn btn-warning">Edit</span>
                   <% end %>
-                  <%= link_to "Delete", booking_path(chalet),
+                  <%= link_to "Delete", chalet_path(chalet),
                    :class => "btn btn-danger",
       method: :delete,
       data: { confirm: "Are you sure?" } %>
