@@ -13,4 +13,9 @@ class Chalet < ApplicationRecord
   geocoded_by :city
   after_validation :geocode, if: :city_changed?
 
+  def occupation_rate
+    local_capacity = 30 * capacity
+    local_bookings = bookings.where()
+  end
+
 end

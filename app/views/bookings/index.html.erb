@@ -23,7 +23,7 @@
           <div class="card_host">
             <div class="card_statut">
                 <% if trip.statut == "Pending"%>
-                  <span class="label label-default"><%= trip.statut %></span>
+                  <span class="label label-warning"><%= trip.statut %></span>
                 <% end %>
                 <% if trip.statut == "Annulé"%>
                   <span class="label label-danger"><%= trip.statut %></span>
@@ -48,7 +48,7 @@
 
             <div class="card_price">
               <p> Price: <%= trip.checkout.to_f %> $</p>
-              <% if trip.statut == "Validé" %>
+              <% if trip.statut == "Validé" || "Pending" %>
                 <%= link_to booking_annule_path(trip) do %>
                   <span class="btn btn-danger">Annuler</span>
                 <% end %>
@@ -94,7 +94,7 @@
 
             <div class="card_price">
               <p> Price: <%= trip.checkout.to_f %> $</p>
-              <% if trip.statut == "Validé" %>
+              <% if trip.statut == "Validé" || "Pending" %>
                 <%= link_to booking_annule_path(trip) do %>
                   <span class="btn btn-danger">Annuler</span>
                 <% end %>
@@ -171,7 +171,7 @@
               style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)),
               url('<%= chalet.photos? ? cl_image_path(chalet.photos.first.path, height: 300, width: 400, crop: :fill) : 'http://placehold.it/400x300' %>')">
               <div class="card-description">
-                <h4 class="card-category"><%= chalet.name %> <%= @place %>/<%= chalet.capacity %></h4>
+                <h4 class="card-category"><%= chalet.name %></h4>
               </div>
             </div>
           <% end %>
