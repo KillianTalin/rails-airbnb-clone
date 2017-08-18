@@ -2,7 +2,7 @@
   <div class="cards-container">
     <div class="row">
       <% @chalets.each do |chalet| %>
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-xs-12 col-sm-4 col-md-4">
           <div class="card">
           <%= link_to chalet_path(chalet) do %>
             <div class="card-body"
@@ -17,6 +17,9 @@
               <ul>
                 <li>
                   <p>Ouvert à partir du <%= chalet.opening_date %></p>
+                </li>
+                <li>
+                  <p><b>À partir de <%= chalet.price %>€ le lit</b></p>
                 </li>
                 <li>
                   <p><%= chalet.capacity %> places</p>
