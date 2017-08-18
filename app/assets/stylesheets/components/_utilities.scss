@@ -147,7 +147,8 @@ body {
 }
 
 .banner-photo {
-  height: 600px;
+  height: 60vh;
+  background-position: center;
 }
 
 .form-inline {
@@ -193,9 +194,13 @@ body {
 }
 
 .contents {
-  height: 87vh
+  height: 87vh;
 }
 
 .device-form-container {
-  margin-top: 20px
+  margin-top: 20px;
+}
+
+.selection-chalet {
+  margin-left: 40px;
 }

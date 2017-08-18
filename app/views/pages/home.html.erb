@@ -36,8 +36,8 @@
     <div class="top-cards">
       <div class="cards">
         <div class="row">
-          <h2> Les meilleurs chalets du Mont-Blanc</h2>
-          <% @selection_mont_blanc.each do |chalet| %>
+          <h2 class="selection-chalet"> Les meilleurs chalets du Beaufortain</h2>
+          <% @selection_beaufortain.each do |chalet| %>
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="card">
               <%= link_to chalet_path(chalet) do %>
@@ -68,8 +68,8 @@
           <% end %>
         </div>
         <div class="row">
-          <h2> Les meilleurs chalets du Beaufortain</h2>
-          <% @selection_beaufortain.each do |chalet| %>
+          <h2 class="selection-chalet"> Les meilleurs chalets du Mont-Blanc</h2>
+          <% @selection_mont_blanc.each do |chalet| %>
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="card">
               <%= link_to chalet_path(chalet) do %>
@@ -133,13 +133,13 @@
    <script type="text/javascript">
      $(document).ready(function(){
        $("#start").datepicker({
-         format: "yyyymmdd",
+         format: "yyyy-mm-dd",
          startDate: "0d",
          todayHighlight: true,
          orientation: "bottom"
        });
        $("#end").datepicker({
-         format: "yyyymmdd",
+         format: "yyyy-mm-dd",
          startDate: "+1d",
          todayHighlight: true,
          orientation: "bottom"
