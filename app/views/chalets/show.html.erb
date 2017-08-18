@@ -73,7 +73,7 @@
             </div>
             <div class="row padded bg-white box-shadowed">
               <div class="col-xs-6 ">
-                <%= simple_form_for (@booking) do |f| %>
+                <%= simple_form_for [@chalet, @booking] do |f| %>
                   <%= f.input :start_date, as: :string, input_html: {class: "datepicker"}, required: true, autofocus: true, placeholder: "Arrival", label: false %>
               </div>
 

@@ -4,7 +4,7 @@ class ChaletsController < ApplicationController
     # @chalets = Chalet.all
     @chalets = Chalet.where.not(latitude: nil, longitude: nil)
     if params[:location].present?
-      @chalets = @chalets.near(params[:location], 50)
+      @chalets = @chalets.near(params[:location], 30)
     end
     #@chalets = Chalet.where params[:location]
     # @results = @chalets.where(location: params[:location])
