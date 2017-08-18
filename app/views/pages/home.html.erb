@@ -1,27 +1,33 @@
 <% if user_signed_in? %>
   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 50%), url(<%= image_path "background-landing.png"%>)">
-    <div class="search-bar">
-      <div class="row">
-        <div class="col-xs-6 col-sm-12 col-md-12">
-          <div class="banner-form">
-            <form action="/chalets" class="form-inline" method="get">
-              <label class="sr-only" for="location">Location</label>
-              <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
-              <label class="sr-only" for="check-in">Check-in</label>
-              <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in">
-              <label class="sr-only" for="check-out">Check-out</label>
-              <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" >
-              <label class="sr-only" for="guest_number"> Guest Number </label>
-                <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="guest_number">
-                  <option selected>Guests</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                  <option value="4">Four</option>
-                  <option value="5">More than four</option>
-                </select>
-              <button type="submit" class="btn btn-primary">Let's Go</button>
-            </form>
+    <div>
+      <div class="banner-content">
+        <h1>Welcome to <span class="typer" id="main" data-words="Paradise.,SkyCabins.,the Alps." data-colors="white" data-delay="100" data-deleteDelay="3000"></span></h1>
+        <p>Find a bed in unique Cabins all accross the French Alps.</p>
+      </div>
+       <div class="search-bar">
+        <div class="row">
+          <div class="col-xs-6 col-sm-12 col-md-12">
+            <div class="banner-form">
+              <form action="/chalets" class="form-inline" method="get">
+                <label class="sr-only" for="location">Location</label>
+                <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
+                <label class="sr-only" for="check-in">Check-in</label>
+                <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in" id="start">
+                <label class="sr-only" for="check-out">Check-out</label>
+                <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" id="end">
+                <label class="sr-only" for="guest_number"> Guest Number </label>
+                  <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="guest_number">
+                    <option selected>Guests</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">More than four</option>
+                  </select>
+                <button type="submit" class="btn btn-primary">Let's Go</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -104,13 +110,10 @@
         <form action="/chalets" class="form-inline" method="get">
           <label class="sr-only" for="location">Location</label>
           <input type="text" name="location" class="form-control mb-2 mr-sm-2 mb-sm-0" placeholder="Where?">
-
           <label class="sr-only" for="check-in">Check-in</label>
-          <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in">
-
+          <input type="text"  name="start_date" data-provide='datepicker' class="form-control" placeholder="Check-in" id="start">
           <label class="sr-only" for="check-out">Check-out</label>
-          <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out" >
-
+          <input type="text" name="end_date" data-provide='datepicker' class="form-control" placeholder="Check-out"  id="end">
           <label class="sr-only" for="guest_number"> Guest Number </label>
             <select class="form-control mb-2 mr-sm-2 mb-sm-0" name="guest_number">
               <option selected>Guests</option>
@@ -126,6 +129,25 @@
     </div>
   </div>
 <% end %>
+<% content_for(:after_js) do %>
+   <script type="text/javascript">
+     $(document).ready(function(){
+       $("#start").datepicker({
+         format: "yyyymmdd",
+         startDate: "0d",
+         todayHighlight: true,
+         orientation: "bottom"
+       });
+       $("#end").datepicker({
+         format: "yyyymmdd",
+         startDate: "+1d",
+         todayHighlight: true,
+         orientation: "bottom"
+       });
+      });
+   </script>
+  <% end %>
+
 
 
 

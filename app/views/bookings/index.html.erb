@@ -158,10 +158,15 @@
   </div>
 
 <div class="tab-pane" id="profile" role="tabpanel">
+
+<div class="list_book">
   <% unless @chalet.empty? %>
-        <h1>Your chalet  </h1>
-  <div class="card_chalet">
-    <div class = "chalet">
+      <h1>Your chalet  </h1>
+
+
+          <div class="card_host">
+
+      <div class = "chalet">
 
     <% @chalet.each do |chalet|  %>
         <div class="col-xs-12 col-sm-4 col-md-4">
@@ -198,12 +203,13 @@
         </div>
     <% end %>
     <% end %>
+
+  </div>
+
+
   </div>
 </div>
 
-
-
-<div class="list_book">
     <h1>Your bookings </h1>
       <% if @bookings_host.empty? %>
         <% if @chalet.empty? %>
@@ -213,10 +219,13 @@
         <% end %>
       <% end %>
 
+
+
+
+
       <% unless @bookings_host_now.empty? %>
         <h3>Your current booking is: </h3>
         <% @bookings_host_now.each do |host|%>
-          <div class="card_host">
             <div class="card_statut">
               <% if host.statut == "Pending"%>
                 <span class="label label-warning"><%= host.statut %></span>
